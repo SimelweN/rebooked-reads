@@ -13,6 +13,7 @@ import {
   Truck,
   BookOpen,
   MapPin,
+  Eye,
 } from "lucide-react";
 import AdminAccess from "./AdminAccess";
 import CartButton from "./CartButton";
@@ -131,10 +132,13 @@ const Navbar = () => {
               <div className="w-7 h-7 sm:w-8 sm:h-8 bg-book-600 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Glasses className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
-              <span className="text-lg sm:text-xl truncate">
-                <span className="hidden sm:inline"><span className="font-extrabold text-book-600">rebooked</span> <span className="text-book-600 text-hollow">Reads</span></span>
-                <span className="sm:hidden"><span className="font-extrabold text-book-600">rebooked</span> <span className="text-book-600 text-hollow">Reads</span></span>
-              </span>
+              <div className="flex flex-col">
+                <span className="text-lg sm:text-xl truncate">
+                  <span className="hidden sm:inline"><span className="font-extrabold text-book-600">ReBooked</span> <span className="text-book-600 text-hollow">Reads</span></span>
+                  <span className="sm:hidden"><span className="font-extrabold text-book-600">ReBooked</span> <span className="text-book-600 text-hollow">Reads</span></span>
+                </span>
+                <span className="text-xs text-gray-500 -mt-1">Powered by ReBooked Solutions</span>
+              </div>
             </Link>
           </div>
 
@@ -168,6 +172,7 @@ const Navbar = () => {
                 isActive("/transparency") ? "text-book-600" : "text-gray-700"
               }`}
             >
+              <Eye className="w-4 h-4" />
               <span>Transparency</span>
             </Link>
 
