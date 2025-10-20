@@ -47,7 +47,7 @@ const Index = () => {
   return (
     <Layout>
       <SEO
-        title="ReBooked Solutions - Buy and Sell Used Textbooks"
+        title="ReBookedReads - Buy and Sell Used Textbooks"
         description="South Africa's trusted platform for buying and selling used textbooks. Find affordable academic books, sell your old textbooks, and connect with students across the country."
         keywords="textbooks, used books, academic books, sell books, buy books, student books, South Africa"
         url="https://www.rebookedsolutions.co.za/"
@@ -67,7 +67,7 @@ const Index = () => {
               </h1>
               <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-xl">
                 Buy affordable secondhand textbooks and give your old ones a new home—
-                all handled securely through ReBooked Solutions.
+                all handled securely through ReBookedReads.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button size="lg" className="bg-book-600 hover:bg-book-700" onClick={() => navigate("/books")}>
@@ -154,66 +154,6 @@ const Index = () => {
       <FeaturedBooks />
 
 
-      {/* ReBooked Campus Promotion Section */}
-      <section className="py-8 sm:py-12 bg-gradient-to-r from-book-600 to-book-700">
-        <div className="container mx-auto px-4">
-          <div className="text-center text-white space-y-4 sm:space-y-6">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="p-3 bg-white/20 rounded-full">
-                <BookOpen className="h-8 w-8 text-white" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold">
-                Introducing ReBooked Campus
-              </h2>
-            </div>
-
-            <p className="text-lg sm:text-xl max-w-2xl mx-auto text-white/90">
-              Your complete university guide! Calculate your APS score, explore
-              degree programs, find bursaries, and buy textbooks from students
-              at your campus.
-            </p>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto text-sm sm:text-base">
-              <div className="bg-white/10 rounded-lg p-3 sm:p-4">
-                <GraduationCap className="h-6 w-6 sm:h-7 sm:w-7 mb-2 text-white" />
-                <div className="font-semibold">APS Calculator</div>
-                <div className="text-white/80 text-xs sm:text-sm">Calculate your score</div>
-              </div>
-              <div className="bg-white/10 rounded-lg p-3 sm:p-4">
-                <School className="h-6 w-6 sm:h-7 sm:w-7 mb-2 text-white" />
-                <div className="font-semibold">26 universities</div>
-                <div className="text-white/80 text-xs sm:text-sm">Explore programs</div>
-              </div>
-              <div className="bg-white/10 rounded-lg p-3 sm:p-4">
-                <TrendingUp className="h-6 w-6 sm:h-7 sm:w-7 mb-2 text-white" />
-                <div className="font-semibold">Find Bursaries</div>
-                <div className="text-white/80 text-xs sm:text-sm">Get funding</div>
-              </div>
-              <div className="bg-white/10 rounded-lg p-3 sm:p-4">
-                <BookOpen className="h-6 w-6 sm:h-7 sm:w-7 mb-2 text-white" />
-                <div className="font-semibold">Campus Books</div>
-                <div className="text-white/80 text-xs sm:text-sm">From your university</div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-              <Button
-                onClick={() => navigate("/university-info")}
-                size="lg"
-                className="bg-white text-book-600 hover:bg-gray-100 font-semibold"
-              >
-                Explore ReBooked Campus →
-              </Button>
-              <Link
-                to="/university-info"
-                className="text-white/90 hover:text-white text-sm underline"
-              >
-                Calculate your APS score now
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* How It Works Section */}
       <HowItWorks />
