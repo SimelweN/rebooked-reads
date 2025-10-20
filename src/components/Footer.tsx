@@ -51,11 +51,11 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/books?category=textbooks"
+                  to="/books?category=novels"
                   className="text-gray-600 hover:text-book-600 text-sm"
                   onClick={handleLinkClick}
                 >
-                  Textbooks
+                  Novels
                 </Link>
               </li>
               <li>
