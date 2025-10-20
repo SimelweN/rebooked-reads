@@ -112,9 +112,7 @@ const initializeApp = () => {
         const EnvironmentError = module.default;
         root.render(
           <React.StrictMode>
-            <EnvironmentError
-              missingVariables={environmentValidation.missing}
-            />
+            <EnvironmentError />
           </React.StrictMode>,
         );
       })
