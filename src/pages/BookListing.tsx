@@ -40,17 +40,10 @@ const BookListing = () => {
     searchParams.get("category") || "",
   );
   const [selectedCondition, setSelectedCondition] = useState("");
-  const [selectedGrade, setSelectedGrade] = useState("");
-  const [selectedCurriculum, setSelectedCurriculum] = useState("");
-  const [selectedUniversityYear, setSelectedUniversityYear] = useState("");
-  const [selectedUniversity, setSelectedUniversity] = useState("");
   const [selectedProvince, setSelectedProvince] = useState(
     searchParams.get("province") || "",
   );
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
-  const [bookType, setBookType] = useState<"all" | "school" | "university">(
-    "all",
-  );
 
   // Memoize loadBooks function to prevent infinite loops
   const loadBooks = useCallback(async () => {
