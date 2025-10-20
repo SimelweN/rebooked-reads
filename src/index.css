@@ -5,6 +5,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hollow text utility for logo styling */
+.text-hollow {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: currentColor;
+}
+
 /* Welcome toast styling for email confirmation */
 .welcome-toast {
   box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3), 0 4px 6px rgba(0, 0, 0, 0.1) !important;
