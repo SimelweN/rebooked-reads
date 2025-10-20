@@ -9,7 +9,7 @@ const ReadyToGetStarted = () => {
   const isAuthenticated = false;
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-r from-book-600 to-book-700">
+    <section className="py-16 sm:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center text-white max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
