@@ -140,15 +140,6 @@ const BookListing = () => {
     if (selectedCategory) {
       newSearchParams.set("category", selectedCategory);
     }
-    if (selectedGrade) {
-      newSearchParams.set("grade", selectedGrade);
-    }
-    if (selectedUniversityYear) {
-      newSearchParams.set("universityYear", selectedUniversityYear);
-    }
-    if (selectedCurriculum) {
-      newSearchParams.set("curriculum", selectedCurriculum);
-    }
     if (selectedProvince) {
       newSearchParams.set("province", selectedProvince);
     }
@@ -158,8 +149,6 @@ const BookListing = () => {
   }, [
     searchQuery,
     selectedCategory,
-    selectedGrade,
-    selectedUniversityYear,
     selectedProvince,
     setSearchParams,
   ]);
@@ -168,13 +157,8 @@ const BookListing = () => {
     setSearchQuery("");
     setSelectedCategory("");
     setSelectedCondition("");
-    setSelectedGrade("");
-    setSelectedUniversityYear("");
-    setSelectedCurriculum("");
-    setSelectedUniversity("");
     setSelectedProvince("");
     setPriceRange([0, 1000]);
-    setBookType("all");
     setCurrentPage(1); // Reset to first page when clearing filters
     setSearchParams(new URLSearchParams());
   }, [setSearchParams]);
