@@ -55,7 +55,7 @@ const Index = () => {
 
       {/* Hero Section - image right on desktop, below text on mobile/tablet */}
       <section className="relative">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('https://source.unsplash.com/1600x900/?books,novel,bookshelf')` }} aria-hidden />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F83ba12a64fe144bd9127799d5d97205b%2F90312a0c75044025a88d739980b92368?format=webp&width=1600')` }} aria-hidden />
         {/* dark overlay for contrast */}
         <div className="absolute inset-0 bg-black/45" aria-hidden />
 
