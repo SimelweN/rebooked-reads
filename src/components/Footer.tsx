@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Book, Instagram, Facebook } from "lucide-react";
+import { Glasses, Instagram, Facebook } from "lucide-react";
 import TikTokIcon from "@/components/icons/TikTokIcon";
 
 const Footer = () => {
@@ -21,9 +21,9 @@ const Footer = () => {
               className="flex items-center"
               onClick={handleLinkClick}
             >
-              <Book className="h-6 w-6 text-book-600" />
+              <Glasses className="h-6 w-6 text-book-600" />
               <span className="ml-2 text-xl font-bold text-book-800">
-                ReBooked Solutions
+                ReBookedReads
               </span>
             </Link>
             <p className="text-gray-600 text-sm">
@@ -194,7 +194,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-200 pt-6 mt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500">
-            &copy; {currentYear} ReBooked Solutions. All rights reserved.
+            &copy; {currentYear} ReBookedReads. All rights reserved.
           </p>
 
           {/* Social Media Links */}
