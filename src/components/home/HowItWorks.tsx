@@ -45,7 +45,7 @@ const HowItWorks = () => {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 leading-relaxed max-w-sm mx-auto">
+              <p className="text-white/90 leading-relaxed max-w-sm mx-auto">
                 {step.description}
               </p>
             </div>
