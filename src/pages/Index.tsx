@@ -59,7 +59,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center min-h-[60vh]">
             {/* Copy */}
-            <div className="order-1">
+            <div className="order-1 text-center w-full">
               <div className="inline-block rounded-full bg-book-200 text-book-800 text-xs sm:text-sm px-3 py-1 mb-4">
                 Pre-Loved Pages, New Adventures
               </div>
