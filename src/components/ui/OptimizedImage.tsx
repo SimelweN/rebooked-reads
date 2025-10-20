@@ -1,11 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, ImgHTMLAttributes, FC } from "react";
 import {
   getOptimizedImageUrl,
   createImagePlaceholder,
 } from "@/utils/imageOptimization";
 
 interface OptimizedImageProps
-  extends React.ImgHTMLAttributes<HTMLImageElement> {
+  extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
   width: number;
@@ -17,7 +17,7 @@ interface OptimizedImageProps
   onError?: () => void;
 }
 
-export const OptimizedImage: React.FC<OptimizedImageProps> = ({
+export const OptimizedImage: FC<OptimizedImageProps> = ({
   src,
   alt,
   width,
