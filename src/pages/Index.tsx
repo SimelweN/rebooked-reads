@@ -48,10 +48,10 @@ const Index = () => {
   return (
     <Layout>
       <SEO
-        title="ReBookedReads - Buy and Sell Used Textbooks"
-        description="South Africa's trusted platform for buying and selling used textbooks. Find affordable academic books, sell your old textbooks, and connect with students across the country."
-        keywords="textbooks, used books, academic books, sell books, buy books, student books, South Africa"
-        url="https://www.rebookedsolutions.co.za/"
+        title="ReBookedReads - Buy and Sell Readers & Novels"
+        description="Discover and trade secondhand readers and novels. Find great fiction, classics and more — connect with fellow readers across the country."
+        keywords="readers, novels, used books, buy books, sell books, fiction, South Africa"
+        url="https://www.rebookedreads.co.za/"
       />
 
       {/* Hero Section - image right on desktop, below text on mobile/tablet */}
