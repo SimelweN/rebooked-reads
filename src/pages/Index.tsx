@@ -90,8 +90,9 @@ const Index = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
-                  <button type="submit" className="bg-book-600 hover:bg-book-700 text-white px-6 py-4">
+                  <button type="submit" className="bg-book-600 hover:bg-book-700 text-white px-6 py-3 flex items-center gap-2">
                     <Search className="w-5 h-5" />
+                    <span className="font-medium">Search</span>
                   </button>
                 </div>
               </form>
