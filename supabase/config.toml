@@ -1,1 +1,118 @@
 project_id = "tefjsvwybbfecdilmvor"
+
+[functions.auto-expire-commits]
+verify_jwt = false
+
+[functions.automate-delivery]
+verify_jwt = false
+
+[functions.bobgo-cancel-shipment]
+verify_jwt = false
+
+[functions.bobgo-create-shipment]
+verify_jwt = false
+
+[functions.bobgo-get-label]
+verify_jwt = false
+
+[functions.bobgo-get-rates]
+verify_jwt = false
+
+[functions.bobgo-track-shipment]
+verify_jwt = false
+
+[functions.bobgo-waybill]
+verify_jwt = false
+
+[functions.bobgo-webhook]
+verify_jwt = false
+
+[functions.cancel-order]
+verify_jwt = false
+
+[functions.cancel-order-with-refund]
+verify_jwt = false
+
+[functions.check-expired-orders]
+verify_jwt = false
+
+[functions.commit-to-sale]
+verify_jwt = false
+
+[functions.courier-guy-lockers]
+verify_jwt = false
+
+[functions.create-order]
+verify_jwt = false
+
+[functions.create-paystack-subaccount]
+verify_jwt = false
+
+[functions.create-recipient]
+verify_jwt = false
+
+[functions.debug-email-template]
+verify_jwt = false
+
+[functions.decrypt-banking-details]
+verify_jwt = false
+
+[functions.decline-commit]
+verify_jwt = false
+
+[functions.fastway-quote]
+verify_jwt = false
+
+[functions.fastway-shipment]
+verify_jwt = false
+
+[functions.fastway-track]
+verify_jwt = false
+
+[functions.get-delivery-quotes]
+verify_jwt = false
+
+[functions.health-test]
+verify_jwt = false
+
+[functions.initialize-paystack-payment]
+verify_jwt = false
+
+[functions.mail-queue-cron]
+verify_jwt = false
+
+[functions.manage-paystack-subaccount]
+verify_jwt = false
+
+[functions.mark-collected]
+verify_jwt = false
+
+[functions.paystack-refund-management]
+verify_jwt = false
+
+[functions.paystack-split-management]
+verify_jwt = false
+
+[functions.paystack-webhook]
+verify_jwt = false
+
+[functions.process-book-purchase]
+verify_jwt = false
+
+[functions.process-mail-queue]
+verify_jwt = false
+
+[functions.process-multi-seller-purchase]
+verify_jwt = false
+
+[functions.process-order-reminders]
+verify_jwt = false
+
+[functions.send-email]
+verify_jwt = false
+
+[functions.test-notification]
+verify_jwt = false
+
+[functions.verify-paystack-payment]
+verify_jwt = false
