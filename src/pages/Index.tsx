@@ -67,7 +67,7 @@ const Index = () => {
               <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg">
                 Discover Readers & Novels — Find your next great read
               </h1>
-              <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-xl">
+              <p className="text-base sm:text-lg text-white/90 mb-6 sm:mb-8 max-w-xl">
                 Browse curated types of novels and secondhand books. Find great reads from fellow book lovers and give your books a new home.
               </p>
 
