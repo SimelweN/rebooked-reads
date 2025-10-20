@@ -57,9 +57,7 @@ const Index = () => {
       <section className="relative">
         {/* Background image as an actual <img> for reliability */}
         <img
-          src={
-            "https://cdn.builder.io/api/v1/image/assets%2F83ba12a64fe144bd9127799d5d97205b%2F5d857431a0c8471194479c1565e42a7e?format=webp&width=1600"
-          }
+          src={"https://source.unsplash.com/1600x900/?books,bookshelf,novel"}
           alt="Books background"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
