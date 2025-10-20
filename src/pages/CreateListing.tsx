@@ -430,13 +430,6 @@ const CreateListing = () => {
                     onInputChange={handleInputChange}
                   />
 
-                  <BookTypeSection
-                    bookType={bookType}
-                    formData={formData}
-                    errors={errors}
-                    onBookTypeChange={handleBookTypeChange}
-                    onSelectChange={handleSelectChange}
-                  />
                 </div>
               </div>
 
