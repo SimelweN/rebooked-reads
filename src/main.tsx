@@ -12,11 +12,23 @@ console.error = (...args) => {
   originalConsoleError.apply(console, args);
 };
 
+// Environment debugging (development only)
+
+
+// Proper network error handling (not suppression)
+import "./utils/networkErrorHandler";
+
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary.tsx";
 import "./index.css";
+
+// Minimal ResizeObserver error suppression
+import "./utils/suppressResizeObserverError";
+
+// Database cleanup disabled to prevent refresh loops
+// import "./utils/runCleanupNow";
 
 
 // Enhanced environment validation with deployment safety
@@ -100,7 +112,9 @@ const initializeApp = () => {
         const EnvironmentError = module.default;
         root.render(
           <React.StrictMode>
-            <EnvironmentError />
+            <EnvironmentError
+              missingVariables={environmentValidation.missing}
+            />
           </React.StrictMode>,
         );
       })

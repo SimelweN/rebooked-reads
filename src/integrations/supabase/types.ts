@@ -4,613 +4,851 @@ export type Json =
   | boolean
   | null
   | { [key: string]: Json | undefined }
-  | Json[]
+  | Json[];
 
 export type Database = {
-  // Allows to automatically instantiate createClient with right options
-  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
-  __InternalSupabase: {
-    PostgrestVersion: "13.0.5"
-  }
   public: {
     Tables: {
-      addresses: {
+<<<<<<< HEAD
+      api_keys: {
         Row: {
-          city: string
-          country: string | null
-          created_at: string | null
-          id: string
-          is_default: boolean | null
-          label: string | null
-          phone: string
-          postal_code: string
-          province: string
-          recipient_name: string
-          street_address: string
-          suburb: string | null
-          updated_at: string | null
-          user_id: string
-        }
+          api_key: string;
+          created_at: string | null;
+          id: number;
+          updated_at: string | null;
+          user_id: string;
+        };
         Insert: {
-          city: string
-          country?: string | null
-          created_at?: string | null
-          id?: string
-          is_default?: boolean | null
-          label?: string | null
-          phone: string
-          postal_code: string
-          province: string
-          recipient_name: string
-          street_address: string
-          suburb?: string | null
-          updated_at?: string | null
-          user_id: string
-        }
+          api_key: string;
+          created_at?: string | null;
+          id?: never;
+          updated_at?: string | null;
+          user_id: string;
+        };
         Update: {
-          city?: string
-          country?: string | null
-          created_at?: string | null
-          id?: string
-          is_default?: boolean | null
-          label?: string | null
-          phone?: string
-          postal_code?: string
-          province?: string
-          recipient_name?: string
-          street_address?: string
-          suburb?: string | null
-          updated_at?: string | null
-          user_id?: string
-        }
-        Relationships: []
-      }
-      banking_subaccounts: {
-        Row: {
-          account_name: string
-          account_number: string
-          bank_name: string
-          business_name: string | null
-          created_at: string | null
-          id: string
-          is_active: boolean | null
-          paystack_subaccount_code: string
-          paystack_subaccount_id: string | null
-          percentage_charge: number | null
-          settlement_bank: string | null
-          updated_at: string | null
-          user_id: string
-        }
-        Insert: {
-          account_name: string
-          account_number: string
-          bank_name: string
-          business_name?: string | null
-          created_at?: string | null
-          id?: string
-          is_active?: boolean | null
-          paystack_subaccount_code: string
-          paystack_subaccount_id?: string | null
-          percentage_charge?: number | null
-          settlement_bank?: string | null
-          updated_at?: string | null
-          user_id: string
-        }
-        Update: {
-          account_name?: string
-          account_number?: string
-          bank_name?: string
-          business_name?: string | null
-          created_at?: string | null
-          id?: string
-          is_active?: boolean | null
-          paystack_subaccount_code?: string
-          paystack_subaccount_id?: string | null
-          percentage_charge?: number | null
-          settlement_bank?: string | null
-          updated_at?: string | null
-          user_id?: string
-        }
-        Relationships: []
-      }
+          api_key?: string;
+          created_at?: string | null;
+          id?: never;
+          updated_at?: string | null;
+          user_id?: string;
+        };
+        Relationships: [];
+      };
       books: {
         Row: {
-          author: string | null
-          category: string | null
-          condition: Database["public"]["Enums"]["book_condition"]
-          created_at: string | null
-          description: string | null
-          edition: string | null
-          favorites_count: number | null
-          grade_level: string | null
-          id: string
-          images: string[] | null
-          is_available: boolean | null
-          isbn: string | null
-          language: string | null
-          location_city: string | null
-          location_province: string | null
-          original_price: number | null
-          page_count: number | null
-          price: number
-          publication_year: number | null
-          publisher: string | null
-          seller_id: string
-          stock_quantity: number | null
-          subject: string | null
-          tags: string[] | null
-          thumbnail_url: string | null
-          title: string
-          updated_at: string | null
-          views_count: number | null
-        }
+          author: string;
+          back_cover: string | null;
+          category: string;
+          condition: string;
+          created_at: string;
+          description: string;
+          front_cover: string | null;
+          grade: string | null;
+          id: string;
+          image_url: string;
+          inside_pages: string | null;
+          additional_images: string[] | null;
+          seller_subaccount_code: string | null;
+          pickup_address: Json | null;
+          price: number;
+          province: string | null;
+          requires_banking_setup: boolean | null;
+          seller_id: string;
+          sold: boolean;
+          availability: string | null; // 'available' | 'sold' | 'reserved' | 'unavailable'
+          sold_at: string | null;
+          title: string;
+          university_year: string | null;
+        };
         Insert: {
-          author?: string | null
-          category?: string | null
-          condition: Database["public"]["Enums"]["book_condition"]
-          created_at?: string | null
-          description?: string | null
-          edition?: string | null
-          favorites_count?: number | null
-          grade_level?: string | null
-          id?: string
-          images?: string[] | null
-          is_available?: boolean | null
-          isbn?: string | null
-          language?: string | null
-          location_city?: string | null
-          location_province?: string | null
-          original_price?: number | null
-          page_count?: number | null
-          price: number
-          publication_year?: number | null
-          publisher?: string | null
-          seller_id: string
-          stock_quantity?: number | null
-          subject?: string | null
-          tags?: string[] | null
-          thumbnail_url?: string | null
-          title: string
-          updated_at?: string | null
-          views_count?: number | null
-        }
+          author: string;
+          back_cover?: string | null;
+          category: string;
+          condition: string;
+          created_at?: string;
+          description: string;
+          front_cover?: string | null;
+          grade?: string | null;
+          id?: string;
+          image_url: string;
+          inside_pages?: string | null;
+          additional_images?: string[] | null;
+          seller_subaccount_code?: string | null;
+          pickup_address?: Json | null;
+          price: number;
+          province?: string | null;
+          requires_banking_setup?: boolean | null;
+          seller_id: string;
+          sold?: boolean;
+          availability?: string | null;
+          sold_at?: string | null;
+          title: string;
+          university_year?: string | null;
+        };
         Update: {
-          author?: string | null
-          category?: string | null
-          condition?: Database["public"]["Enums"]["book_condition"]
-          created_at?: string | null
-          description?: string | null
-          edition?: string | null
-          favorites_count?: number | null
-          grade_level?: string | null
-          id?: string
-          images?: string[] | null
-          is_available?: boolean | null
-          isbn?: string | null
-          language?: string | null
-          location_city?: string | null
-          location_province?: string | null
-          original_price?: number | null
-          page_count?: number | null
-          price?: number
-          publication_year?: number | null
-          publisher?: string | null
-          seller_id?: string
-          stock_quantity?: number | null
-          subject?: string | null
-          tags?: string[] | null
-          thumbnail_url?: string | null
-          title?: string
-          updated_at?: string | null
-          views_count?: number | null
-        }
-        Relationships: []
-      }
-      mail_queue: {
+          author?: string;
+          back_cover?: string | null;
+          category?: string;
+          condition?: string;
+          created_at?: string;
+          description?: string;
+          front_cover?: string | null;
+          grade?: string | null;
+          id?: string;
+          image_url?: string;
+          inside_pages?: string | null;
+          additional_images?: string[] | null;
+          seller_subaccount_code?: string | null;
+          pickup_address?: Json | null;
+          price?: number;
+          province?: string | null;
+          requires_banking_setup?: boolean | null;
+          seller_id?: string;
+          sold?: boolean;
+          availability?: string | null;
+          sold_at?: string | null;
+          title?: string;
+          university_year?: string | null;
+        };
+        Relationships: [];
+      };
+      broadcasts: {
         Row: {
-          body: string
-          created_at: string | null
-          email: string
-          error_message: string | null
-          id: string
-          retry_count: number | null
-          sent_at: string | null
-          status: string | null
-          subject: string
-          user_id: string | null
-        }
+          active: boolean;
+          created_at: string;
+          created_by: string | null;
+          expires_at: string | null;
+          id: string;
+          message: string;
+          priority: Database["public"]["Enums"]["broadcast_priority"];
+          target_audience:
+            | Database["public"]["Enums"]["broadcast_target_audience"]
+            | null;
+          title: string;
+          type: Database["public"]["Enums"]["broadcast_type"];
+          updated_at: string;
+        };
         Insert: {
-          body: string
-          created_at?: string | null
-          email: string
-          error_message?: string | null
-          id?: string
-          retry_count?: number | null
-          sent_at?: string | null
-          status?: string | null
-          subject: string
-          user_id?: string | null
-        }
+          active?: boolean;
+          created_at?: string;
+          created_by?: string | null;
+          expires_at?: string | null;
+          id?: string;
+          message: string;
+          priority?: Database["public"]["Enums"]["broadcast_priority"];
+          target_audience?:
+            | Database["public"]["Enums"]["broadcast_target_audience"]
+            | null;
+          title: string;
+          type?: Database["public"]["Enums"]["broadcast_type"];
+          updated_at?: string;
+        };
         Update: {
-          body?: string
-          created_at?: string | null
-          email?: string
-          error_message?: string | null
-          id?: string
-          retry_count?: number | null
-          sent_at?: string | null
-          status?: string | null
-          subject?: string
-          user_id?: string | null
-        }
-        Relationships: []
-      }
-      notifications: {
-        Row: {
-          created_at: string | null
-          id: string
-          link: string | null
-          message: string
-          metadata: Json | null
-          read: boolean | null
-          title: string
-          type: string | null
-          user_id: string
-        }
-        Insert: {
-          created_at?: string | null
-          id?: string
-          link?: string | null
-          message: string
-          metadata?: Json | null
-          read?: boolean | null
-          title: string
-          type?: string | null
-          user_id: string
-        }
-        Update: {
-          created_at?: string | null
-          id?: string
-          link?: string | null
-          message?: string
-          metadata?: Json | null
-          read?: boolean | null
-          title?: string
-          type?: string | null
-          user_id?: string
-        }
-        Relationships: []
-      }
-      order_items: {
-        Row: {
-          book_author: string | null
-          book_condition: Database["public"]["Enums"]["book_condition"] | null
-          book_id: string | null
-          book_image_url: string | null
-          book_isbn: string | null
-          book_title: string
-          created_at: string | null
-          id: string
-          order_id: string
-          quantity: number
-          subtotal: number
-          unit_price: number
-        }
-        Insert: {
-          book_author?: string | null
-          book_condition?: Database["public"]["Enums"]["book_condition"] | null
-          book_id?: string | null
-          book_image_url?: string | null
-          book_isbn?: string | null
-          book_title: string
-          created_at?: string | null
-          id?: string
-          order_id: string
-          quantity?: number
-          subtotal: number
-          unit_price: number
-        }
-        Update: {
-          book_author?: string | null
-          book_condition?: Database["public"]["Enums"]["book_condition"] | null
-          book_id?: string | null
-          book_image_url?: string | null
-          book_isbn?: string | null
-          book_title?: string
-          created_at?: string | null
-          id?: string
-          order_id?: string
-          quantity?: number
-          subtotal?: number
-          unit_price?: number
-        }
+          active?: boolean;
+          created_at?: string;
+          created_by?: string | null;
+          expires_at?: string | null;
+          id?: string;
+          message?: string;
+          priority?: Database["public"]["Enums"]["broadcast_priority"];
+          target_audience?:
+            | Database["public"]["Enums"]["broadcast_target_audience"]
+            | null;
+          title?: string;
+          type?: Database["public"]["Enums"]["broadcast_type"];
+          updated_at?: string;
+        };
         Relationships: [
           {
-            foreignKeyName: "order_items_book_id_fkey"
-            columns: ["book_id"]
-            isOneToOne: false
-            referencedRelation: "books"
-            referencedColumns: ["id"]
+            foreignKeyName: "broadcasts_created_by_fkey";
+            columns: ["created_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
           },
-          {
-            foreignKeyName: "order_items_order_id_fkey"
-            columns: ["order_id"]
-            isOneToOne: false
-            referencedRelation: "orders"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      orders: {
+        ];
+      };
+      contact_messages: {
         Row: {
-          actual_delivery: string | null
-          admin_notes: string | null
-          amount: number | null
-          billing_address: Json | null
-          buyer_id: string | null
-          buyer_notes: string | null
-          cancellation_reason: string | null
-          cancelled_at: string | null
-          commit_deadline: string | null
-          commit_status: string | null
-          committed_at: string | null
-          created_at: string | null
-          decline_reason: string | null
-          delivery_fee: number | null
-          delivery_method: string | null
-          delivery_provider: string | null
-          delivery_status: Database["public"]["Enums"]["delivery_status"] | null
-          estimated_delivery: string | null
-          id: string
-          order_number: string | null
-          paid_at: string | null
-          payment_method: string | null
-          payment_reference: string | null
-          payment_status: Database["public"]["Enums"]["payment_status"] | null
-          refund_amount: number | null
-          refund_reference: string | null
-          refund_status: string | null
-          refunded_at: string | null
-          seller_id: string | null
-          seller_notes: string | null
-          service_fee: number | null
-          shipping_address: Json | null
-          status: Database["public"]["Enums"]["order_status"] | null
-          subtotal: number
-          total_amount: number
-          tracking_number: string | null
-          updated_at: string | null
-        }
+          created_at: string;
+          email: string;
+          id: string;
+          message: string;
+          name: string;
+          status: string;
+          subject: string;
+          updated_at: string;
+        };
         Insert: {
-          actual_delivery?: string | null
-          admin_notes?: string | null
-          amount?: number | null
-          billing_address?: Json | null
-          buyer_id?: string | null
-          buyer_notes?: string | null
-          cancellation_reason?: string | null
-          cancelled_at?: string | null
-          commit_deadline?: string | null
-          commit_status?: string | null
-          committed_at?: string | null
-          created_at?: string | null
-          decline_reason?: string | null
-          delivery_fee?: number | null
-          delivery_method?: string | null
-          delivery_provider?: string | null
-          delivery_status?:
-            | Database["public"]["Enums"]["delivery_status"]
-            | null
-          estimated_delivery?: string | null
-          id?: string
-          order_number?: string | null
-          paid_at?: string | null
-          payment_method?: string | null
-          payment_reference?: string | null
-          payment_status?: Database["public"]["Enums"]["payment_status"] | null
-          refund_amount?: number | null
-          refund_reference?: string | null
-          refund_status?: string | null
-          refunded_at?: string | null
-          seller_id?: string | null
-          seller_notes?: string | null
-          service_fee?: number | null
-          shipping_address?: Json | null
-          status?: Database["public"]["Enums"]["order_status"] | null
-          subtotal: number
-          total_amount: number
-          tracking_number?: string | null
-          updated_at?: string | null
-        }
+          created_at?: string;
+          email: string;
+          id?: string;
+          message: string;
+          name: string;
+          status?: string;
+          subject: string;
+          updated_at?: string;
+        };
         Update: {
-          actual_delivery?: string | null
-          admin_notes?: string | null
-          amount?: number | null
-          billing_address?: Json | null
-          buyer_id?: string | null
-          buyer_notes?: string | null
-          cancellation_reason?: string | null
-          cancelled_at?: string | null
-          commit_deadline?: string | null
-          commit_status?: string | null
-          committed_at?: string | null
-          created_at?: string | null
-          decline_reason?: string | null
-          delivery_fee?: number | null
-          delivery_method?: string | null
-          delivery_provider?: string | null
-          delivery_status?:
-            | Database["public"]["Enums"]["delivery_status"]
-            | null
-          estimated_delivery?: string | null
-          id?: string
-          order_number?: string | null
-          paid_at?: string | null
-          payment_method?: string | null
-          payment_reference?: string | null
-          payment_status?: Database["public"]["Enums"]["payment_status"] | null
-          refund_amount?: number | null
-          refund_reference?: string | null
-          refund_status?: string | null
-          refunded_at?: string | null
-          seller_id?: string | null
-          seller_notes?: string | null
-          service_fee?: number | null
-          shipping_address?: Json | null
-          status?: Database["public"]["Enums"]["order_status"] | null
-          subtotal?: number
-          total_amount?: number
-          tracking_number?: string | null
-          updated_at?: string | null
-        }
-        Relationships: []
-      }
+          created_at?: string;
+          email?: string;
+          id?: string;
+          message?: string;
+          name?: string;
+          status?: string;
+          subject?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      email_notifications: {
+        Row: {
+          created_at: string;
+          email: string;
+          id: string;
+        };
+        Insert: {
+          created_at?: string;
+          email: string;
+          id?: string;
+        };
+        Update: {
+          created_at?: string;
+          email?: string;
+          id?: string;
+        };
+        Relationships: [];
+      };
+      notifications: {
+        Row: {
+          created_at: string;
+          id: string;
+          message: string;
+          read: boolean;
+          title: string;
+          type: string;
+          user_id: string;
+        };
+        Insert: {
+          created_at?: string;
+          id?: string;
+          message: string;
+          read?: boolean;
+          title: string;
+          type: string;
+          user_id: string;
+        };
+        Update: {
+          created_at?: string;
+          id?: string;
+          message?: string;
+          read?: boolean;
+          title?: string;
+          type?: string;
+          user_id?: string;
+        };
+        Relationships: [];
+      };
       profiles: {
         Row: {
-          avatar_url: string | null
-          bio: string | null
-          created_at: string | null
-          email: string | null
-          first_name: string | null
-          id: string
-          is_seller: boolean | null
-          last_name: string | null
-          phone: string | null
-          seller_rating: number | null
-          total_purchases: number | null
-          total_sales: number | null
-          updated_at: string | null
-        }
+          addresses_same: boolean | null;
+          aps_score: number | null;
+          banking_info: Json | null;
+          banking_verified: boolean | null;
+          banking_setup_at: string | null;
+          bio: string | null;
+          created_at: string;
+          email: string | null;
+          id: string;
+          is_admin: boolean | null;
+          name: string | null;
+          subaccount_code: string | null;
+          pickup_address: Json | null;
+          profile_picture_url: string | null;
+          shipping_address: Json | null;
+          status: string | null;
+          suspended_at: string | null;
+          suspension_reason: string | null;
+          updated_at: string;
+        };
         Insert: {
-          avatar_url?: string | null
-          bio?: string | null
-          created_at?: string | null
-          email?: string | null
-          first_name?: string | null
-          id: string
-          is_seller?: boolean | null
-          last_name?: string | null
-          phone?: string | null
-          seller_rating?: number | null
-          total_purchases?: number | null
-          total_sales?: number | null
-          updated_at?: string | null
-        }
+          addresses_same?: boolean | null;
+          aps_score?: number | null;
+          banking_info?: Json | null;
+          banking_verified?: boolean | null;
+          banking_setup_at?: string | null;
+          bio?: string | null;
+          created_at?: string;
+          email?: string | null;
+          id: string;
+          is_admin?: boolean | null;
+          name?: string | null;
+          subaccount_code?: string | null;
+          pickup_address?: Json | null;
+          profile_picture_url?: string | null;
+          shipping_address?: Json | null;
+          status?: string | null;
+          suspended_at?: string | null;
+          suspension_reason?: string | null;
+          updated_at?: string;
+        };
         Update: {
-          avatar_url?: string | null
-          bio?: string | null
-          created_at?: string | null
-          email?: string | null
-          first_name?: string | null
-          id?: string
-          is_seller?: boolean | null
-          last_name?: string | null
-          phone?: string | null
-          seller_rating?: number | null
-          total_purchases?: number | null
-          total_sales?: number | null
-          updated_at?: string | null
-        }
-        Relationships: []
-      }
-      user_roles: {
+          addresses_same?: boolean | null;
+          aps_score?: number | null;
+          banking_info?: Json | null;
+          banking_verified?: boolean | null;
+          banking_setup_at?: string | null;
+          bio?: string | null;
+          created_at?: string;
+          email?: string | null;
+          id?: string;
+          is_admin?: boolean | null;
+          name?: string | null;
+          subaccount_code?: string | null;
+          pickup_address?: Json | null;
+          profile_picture_url?: string | null;
+          shipping_address?: Json | null;
+          status?: string | null;
+          suspended_at?: string | null;
+          suspension_reason?: string | null;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      reports: {
         Row: {
-          created_at: string | null
-          id: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
+          book_id: string | null;
+          book_title: string;
+          created_at: string;
+          id: string;
+          reason: string;
+          reported_user_id: string;
+          reporter_user_id: string;
+          seller_name: string;
+          status: string;
+          updated_at: string;
+        };
         Insert: {
-          created_at?: string | null
-          id?: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
+          book_id?: string | null;
+          book_title: string;
+          created_at?: string;
+          id?: string;
+          reason: string;
+          reported_user_id: string;
+          reporter_user_id: string;
+          seller_name: string;
+          status?: string;
+          updated_at?: string;
+        };
         Update: {
-          created_at?: string | null
-          id?: string
-          role?: Database["public"]["Enums"]["app_role"]
-          user_id?: string
-        }
-        Relationships: []
-      }
-    }
-    Views: {
+          book_id?: string | null;
+          book_title?: string;
+          created_at?: string;
+          id?: string;
+          reason?: string;
+          reported_user_id?: string;
+          reporter_user_id?: string;
+          seller_name?: string;
+          status?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "reports_book_id_fkey";
+            columns: ["book_id"];
+            isOneToOne: false;
+            referencedRelation: "books";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      sale_commitments: {
+        Row: {
+          id: string;
+          book_id: string;
+          seller_id: string;
+          buyer_id: string;
+          purchase_amount: number;
+          delivery_fee: number;
+          total_amount: number;
+          status: string;
+          committed_at: string | null;
+          expires_at: string;
+          payment_reference: string | null;
+          payment_status: string;
+          delivery_confirmed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          book_id: string;
+          seller_id: string;
+          buyer_id: string;
+          purchase_amount: number;
+          delivery_fee?: number;
+          total_amount: number;
+          status?: string;
+          committed_at?: string | null;
+          expires_at: string;
+          payment_reference?: string | null;
+          payment_status?: string;
+          delivery_confirmed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          book_id?: string;
+          seller_id?: string;
+          buyer_id?: string;
+          purchase_amount?: number;
+          delivery_fee?: number;
+          total_amount?: number;
+          status?: string;
+          committed_at?: string | null;
+          expires_at?: string;
+          payment_reference?: string | null;
+          payment_status?: string;
+          delivery_confirmed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "sale_commitments_book_id_fkey";
+            columns: ["book_id"];
+            isOneToOne: false;
+            referencedRelation: "books";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      transactions: {
+        Row: {
+          book_id: string;
+          book_title: string;
+          buyer_id: string;
+          commission: number;
+          created_at: string;
+          id: string;
+          price: number;
+          seller_id: string;
+        };
+        Insert: {
+          book_id: string;
+          book_title: string;
+          buyer_id: string;
+          commission: number;
+          created_at?: string;
+          id?: string;
+          price: number;
+          seller_id: string;
+        };
+        Update: {
+          book_id?: string;
+          book_title?: string;
+          buyer_id?: string;
+          commission?: number;
+          created_at?: string;
+          id?: string;
+          price?: number;
+          seller_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "transactions_book_id_fkey";
+            columns: ["book_id"];
+            isOneToOne: false;
+            referencedRelation: "books";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      waitlist: {
+        Row: {
+          created_at: string;
+          email: string;
+          id: string;
+          notified: boolean;
+        };
+        Insert: {
+          created_at?: string;
+          email: string;
+          id?: string;
+          notified?: boolean;
+        };
+        Update: {
+          created_at?: string;
+          email?: string;
+          id?: string;
+          notified?: boolean;
+        };
+                        Relationships: [];
+      };
+      banking_subaccounts: {
+        Row: {
+          id: string;
+          user_id: string | null;
+          business_name: string;
+          email: string;
+          bank_name: string;
+          bank_code: string;
+          account_number: string;
+          subaccount_code: string | null;
+          recipient_code: string | null;
+          paystack_response: any | null;
+          status: string | null;
+          created_at: string | null;
+          updated_at: string | null;
+        };
+        Insert: {
+          id?: string;
+          user_id?: string | null;
+          business_name: string;
+          email: string;
+          bank_name: string;
+          bank_code: string;
+          account_number: string;
+          subaccount_code?: string | null;
+          recipient_code?: string | null;
+          paystack_response?: any | null;
+          status?: string | null;
+          created_at?: string | null;
+          updated_at?: string | null;
+        };
+        Update: {
+          id?: string;
+          user_id?: string | null;
+          business_name?: string;
+          email?: string;
+          bank_name?: string;
+          bank_code?: string;
+          account_number?: string;
+          subaccount_code?: string | null;
+          recipient_code?: string | null;
+          paystack_response?: any | null;
+          status?: string | null;
+          created_at?: string | null;
+          updated_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "banking_subaccounts_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: true;
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          }
+                ];
+      };
+      payment_transactions: {
+        Row: {
+          id: string;
+          order_id: string | null;
+          paystack_reference: string;
+          amount: number; // in kobo
+          status: string; // 'pending' | 'success' | 'failed' | 'abandoned'
+          payment_method: string | null;
+          currency: string;
+          customer_email: string;
+          customer_name: string | null;
+          metadata: Json | null;
+          gateway_response: Json | null;
+          paid_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          order_id?: string | null;
+          paystack_reference: string;
+          amount: number;
+          status?: string;
+          payment_method?: string | null;
+          currency?: string;
+          customer_email: string;
+          customer_name?: string | null;
+          metadata?: Json | null;
+          gateway_response?: Json | null;
+          paid_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          order_id?: string | null;
+          paystack_reference?: string;
+          amount?: number;
+          status?: string;
+          payment_method?: string | null;
+          currency?: string;
+          customer_email?: string;
+          customer_name?: string | null;
+          metadata?: Json | null;
+          gateway_response?: Json | null;
+          paid_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "payment_transactions_order_id_fkey";
+            columns: ["order_id"];
+            isOneToOne: false;
+            referencedRelation: "orders";
+            referencedColumns: ["id"];
+          }
+                ];
+      };
+      refund_transactions: {
+        Row: {
+          id: string;
+          order_id: string | null;
+          payment_reference: string;
+          refund_reference: string | null;
+          amount: number; // in kobo
+          reason: string | null;
+          status: string; // 'pending' | 'processing' | 'success' | 'failed'
+          gateway_response: Json | null;
+          initiated_by: string | null;
+          initiated_at: string;
+          processed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          order_id?: string | null;
+          payment_reference: string;
+          refund_reference?: string | null;
+          amount: number;
+          reason?: string | null;
+          status?: string;
+          gateway_response?: Json | null;
+          initiated_by?: string | null;
+          initiated_at?: string;
+          processed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          order_id?: string | null;
+          payment_reference?: string;
+          refund_reference?: string | null;
+          amount?: number;
+          reason?: string | null;
+          status?: string;
+          gateway_response?: Json | null;
+          initiated_by?: string | null;
+          initiated_at?: string;
+          processed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "refund_transactions_order_id_fkey";
+            columns: ["order_id"];
+            isOneToOne: false;
+            referencedRelation: "orders";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+      orders: {
+        Row: {
+          id: string;
+          buyer_email: string;
+          seller_id: string;
+          amount: number; // in kobo (cents)
+          paystack_ref: string;
+          status: string; // 'pending' | 'paid' | 'cancelled' | 'refunded'
+          items: Json; // JSONB array of order items
+          shipping_address: Json | null; // JSONB shipping address
+          delivery_data: Json | null; // JSONB delivery information
+          metadata: Json | null; // JSONB additional metadata
+          paid_at: string | null; // TIMESTAMP WITH TIME ZONE
+          payment_held: boolean | null;
+          created_at: string; // TIMESTAMP WITH TIME ZONE
+          updated_at: string; // TIMESTAMP WITH TIME ZONE
+          // Additional columns from order cancellation migration
+          delivery_status: string | null;
+          courier_booking_id: string | null;
+          courier_service: string | null;
+          pickup_scheduled_at: string | null;
+          pickup_failed_at: string | null;
+          pickup_failure_reason: string | null;
+          rescheduled_at: string | null;
+          cancelled_at: string | null;
+          cancellation_reason: string | null;
+          declined_at: string | null;
+          decline_reason: string | null;
+          delivery_info: Json | null;
+          refund_status: string | null;
+          refund_reference: string | null;
+          refunded_at: string | null;
+          total_refunded: number | null;
+        };
+        Insert: {
+          id?: string;
+          buyer_email: string;
+          seller_id: string;
+          amount: number;
+          paystack_ref: string;
+          status?: string;
+          items?: Json;
+          shipping_address?: Json | null;
+          delivery_data?: Json | null;
+          metadata?: Json | null;
+          paid_at?: string | null;
+          payment_held?: boolean | null;
+          created_at?: string;
+          updated_at?: string;
+          delivery_status?: string | null;
+          courier_booking_id?: string | null;
+          courier_service?: string | null;
+          pickup_scheduled_at?: string | null;
+          pickup_failed_at?: string | null;
+          pickup_failure_reason?: string | null;
+          rescheduled_at?: string | null;
+          cancelled_at?: string | null;
+          cancellation_reason?: string | null;
+          declined_at?: string | null;
+          decline_reason?: string | null;
+          delivery_info?: Json | null;
+          refund_status?: string | null;
+          refund_reference?: string | null;
+          refunded_at?: string | null;
+          total_refunded?: number | null;
+        };
+        Update: {
+          id?: string;
+          buyer_email?: string;
+          seller_id?: string;
+          amount?: number;
+          paystack_ref?: string;
+          status?: string;
+          items?: Json;
+          shipping_address?: Json | null;
+          delivery_data?: Json | null;
+          metadata?: Json | null;
+          paid_at?: string | null;
+          payment_held?: boolean | null;
+          created_at?: string;
+          updated_at?: string;
+          delivery_status?: string | null;
+          courier_booking_id?: string | null;
+          courier_service?: string | null;
+          pickup_scheduled_at?: string | null;
+          pickup_failed_at?: string | null;
+          pickup_failure_reason?: string | null;
+          rescheduled_at?: string | null;
+          cancelled_at?: string | null;
+          cancellation_reason?: string | null;
+          declined_at?: string | null;
+          decline_reason?: string | null;
+          delivery_info?: Json | null;
+          refund_status?: string | null;
+          refund_reference?: string | null;
+          refunded_at?: string | null;
+          total_refunded?: number | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "orders_seller_id_fkey";
+            columns: ["seller_id"];
+            isOneToOne: false;
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+    };
+=======
       [_ in never]: never
     }
+>>>>>>> 9b97eb90ff937f73844966bf50b3b4e3407d3cf5
+    Views: {
+      [_ in never]: never;
+    };
     Functions: {
+<<<<<<< HEAD
+      delete_user_profile: {
+        Args: { user_id: string };
+        Returns: undefined;
+      };
+      generate_api_key: {
+        Args: { user_id: string };
+        Returns: string;
+      };
+      get_user_profile: {
+        Args: { user_id: string };
+        Returns: {
+          id: string;
+          name: string;
+          email: string;
+        }[];
+      };
       has_role: {
-        Args: {
-          _role: Database["public"]["Enums"]["app_role"]
-          _user_id: string
-        }
-        Returns: boolean
-      }
+        Args:
+          | { user_id: number; role_name: string }
+          | { user_id: string; role_name: string };
+        Returns: boolean;
+      };
+      is_admin: {
+        Args: { user_id: string };
+        Returns: boolean;
+      };
+      list_all_profiles: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          id: string;
+          username: string;
+          email: string;
+          created_at: string;
+        }[];
+      };
+      update_user_profile: {
+        Args: { user_id: string; new_name: string; new_email: string };
+        Returns: undefined;
+      };
+    };
+    Enums: {
+      broadcast_priority: "low" | "normal" | "medium" | "high" | "urgent";
+      broadcast_target_audience: "all" | "users" | "admin";
+      broadcast_type: "info" | "warning" | "success" | "error";
+    };
+=======
+      [_ in never]: never
     }
     Enums: {
-      app_role: "admin" | "seller" | "buyer"
-      book_condition:
-        | "new"
-        | "like_new"
-        | "very_good"
-        | "good"
-        | "acceptable"
-        | "poor"
-      delivery_status:
-        | "pending"
-        | "label_created"
-        | "picked_up"
-        | "in_transit"
-        | "out_for_delivery"
-        | "delivered"
-        | "failed"
-        | "cancelled"
-      order_status:
-        | "pending_payment"
-        | "payment_verified"
-        | "processing"
-        | "awaiting_seller_commit"
-        | "committed"
-        | "declined"
-        | "shipped"
-        | "in_transit"
-        | "delivered"
-        | "completed"
-        | "cancelled"
-        | "refunded"
-      payment_status:
-        | "pending"
-        | "processing"
-        | "success"
-        | "failed"
-        | "refunded"
-    }
-    CompositeTypes: {
       [_ in never]: never
     }
-  }
-}
+>>>>>>> 9b97eb90ff937f73844966bf50b3b4e3407d3cf5
+    CompositeTypes: {
+      [_ in never]: never;
+    };
+  };
+};
 
-type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">
-
-type DefaultSchema = DatabaseWithoutInternals[Extract<keyof Database, "public">]
+type DefaultSchema = Database[Extract<keyof Database, "public">];
 
 export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
-    | { schema: keyof DatabaseWithoutInternals },
+    | { schema: keyof Database },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof DatabaseWithoutInternals
+    schema: keyof Database;
   }
-    ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-        DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
+    ? keyof (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+        Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals
-}
-  ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-      DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
-      Row: infer R
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
+  ? (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+      Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+      Row: infer R;
     }
     ? R
     : never
@@ -618,139 +856,98 @@ export type Tables<
         DefaultSchema["Views"])
     ? (DefaultSchema["Tables"] &
         DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {
-        Row: infer R
+        Row: infer R;
       }
       ? R
       : never
-    : never
+    : never;
 
 export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
-    | { schema: keyof DatabaseWithoutInternals },
+    | { schema: keyof Database },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof DatabaseWithoutInternals
+    schema: keyof Database;
   }
-    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals
-}
-  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Insert: infer I
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
+  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Insert: infer I;
     }
     ? I
     : never
   : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
     ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
-        Insert: infer I
+        Insert: infer I;
       }
       ? I
       : never
-    : never
+    : never;
 
 export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
-    | { schema: keyof DatabaseWithoutInternals },
+    | { schema: keyof Database },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof DatabaseWithoutInternals
+    schema: keyof Database;
   }
-    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals
-}
-  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Update: infer U
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
+  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Update: infer U;
     }
     ? U
     : never
   : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
     ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
-        Update: infer U
+        Update: infer U;
       }
       ? U
       : never
-    : never
+    : never;
 
 export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
-    | { schema: keyof DatabaseWithoutInternals },
+    | { schema: keyof Database },
   EnumName extends DefaultSchemaEnumNameOrOptions extends {
-    schema: keyof DatabaseWithoutInternals
+    schema: keyof Database;
   }
-    ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
+    ? keyof Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
     : never = never,
-> = DefaultSchemaEnumNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals
-}
-  ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
+> = DefaultSchemaEnumNameOrOptions extends { schema: keyof Database }
+  ? Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
     ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
-    : never
+    : never;
 
 export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
-    | { schema: keyof DatabaseWithoutInternals },
+    | { schema: keyof Database },
   CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
-    schema: keyof DatabaseWithoutInternals
+    schema: keyof Database;
   }
-    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
     : never = never,
-> = PublicCompositeTypeNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals
-}
-  ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
   : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
     ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
-    : never
+    : never;
 
 export const Constants = {
   public: {
+<<<<<<< HEAD
     Enums: {
-      app_role: ["admin", "seller", "buyer"],
-      book_condition: [
-        "new",
-        "like_new",
-        "very_good",
-        "good",
-        "acceptable",
-        "poor",
-      ],
-      delivery_status: [
-        "pending",
-        "label_created",
-        "picked_up",
-        "in_transit",
-        "out_for_delivery",
-        "delivered",
-        "failed",
-        "cancelled",
-      ],
-      order_status: [
-        "pending_payment",
-        "payment_verified",
-        "processing",
-        "awaiting_seller_commit",
-        "committed",
-        "declined",
-        "shipped",
-        "in_transit",
-        "delivered",
-        "completed",
-        "cancelled",
-        "refunded",
-      ],
-      payment_status: [
-        "pending",
-        "processing",
-        "success",
-        "failed",
-        "refunded",
-      ],
+      broadcast_priority: ["low", "normal", "medium", "high", "urgent"],
+      broadcast_target_audience: ["all", "users", "admin"],
+      broadcast_type: ["info", "warning", "success", "error"],
     },
+=======
+    Enums: {},
+>>>>>>> 9b97eb90ff937f73844966bf50b3b4e3407d3cf5
   },
-} as const
+} as const;
