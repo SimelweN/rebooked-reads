@@ -4,9 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Filter, Search, School, GraduationCap, BookOpen, MapPin } from "lucide-react";
-import { UniversitySelector } from "@/components/ui/university-selector";
-import { UNIVERSITY_YEARS } from "@/constants/universities";
+import { Filter, Search, BookOpen, MapPin } from "lucide-react";
 import { CREATE_LISTING_CATEGORIES } from "@/constants/createListingCategories";
 
 interface BookFiltersProps {
@@ -16,20 +14,10 @@ interface BookFiltersProps {
   setSelectedCategory: (category: string) => void;
   selectedCondition: string;
   setSelectedCondition: (condition: string) => void;
-  selectedGrade: string;
-  setSelectedGrade: (grade: string) => void;
-  selectedCurriculum: string;
-  setSelectedCurriculum: (curriculum: string) => void;
-  selectedUniversityYear: string;
-  setSelectedUniversityYear: (year: string) => void;
-  selectedUniversity: string;
-  setSelectedUniversity: (university: string) => void;
   selectedProvince: string;
   setSelectedProvince: (province: string) => void;
   priceRange: [number, number];
   setPriceRange: (range: [number, number]) => void;
-  bookType: "all" | "school" | "university";
-  setBookType: (type: "all" | "school" | "university") => void;
   showFilters: boolean;
   setShowFilters: (show: boolean) => void;
   onSearch: (e: React.FormEvent) => void;
@@ -44,20 +32,10 @@ const BookFilters = ({
   setSelectedCategory,
   selectedCondition,
   setSelectedCondition,
-  selectedGrade,
-  setSelectedGrade,
-  selectedCurriculum,
-  setSelectedCurriculum,
-  selectedUniversityYear,
-  setSelectedUniversityYear,
-  selectedUniversity,
-  setSelectedUniversity,
   selectedProvince,
   setSelectedProvince,
   priceRange,
   setPriceRange,
-  bookType,
-  setBookType,
   showFilters,
   setShowFilters,
   onSearch,
@@ -66,21 +44,6 @@ const BookFilters = ({
 }: BookFiltersProps) => {
   const categories = CREATE_LISTING_CATEGORIES;
   const conditions = ["New", "Good", "Better", "Average", "Below Average"];
-  const grades = [
-    "Grade 1",
-    "Grade 2",
-    "Grade 3",
-    "Grade 4",
-    "Grade 5",
-    "Grade 6",
-    "Grade 7",
-    "Grade 8",
-    "Grade 9",
-    "Grade 10",
-    "Grade 11",
-    "Grade 12",
-  ];
-  const curricula = ["CAPS", "Cambridge", "IEB"];
   const provinces = [
     "Eastern Cape",
     "Free State",
@@ -101,52 +64,14 @@ const BookFilters = ({
     setSelectedCondition(condition === selectedCondition ? "" : condition);
   };
 
-  const handleGradeChange = (grade: string) => {
-    setSelectedGrade(grade === selectedGrade ? "" : grade);
-    if (grade && grade !== selectedGrade) {
-      setSelectedUniversityYear("");
-      setBookType("school");
-    }
-  };
-
-  const handleUniversityYearChange = (year: string) => {
-    setSelectedUniversityYear(year === selectedUniversityYear ? "" : year);
-    if (year && year !== selectedUniversityYear) {
-      setSelectedGrade("");
-      setBookType("university");
-    }
-  };
-
-  const handleUniversityChange = (university: string) => {
-    setSelectedUniversity(university);
-    if (university) {
-      setSelectedGrade("");
-      setBookType("university");
-    }
-  };
-
   const handleProvinceChange = (province: string) => {
     setSelectedProvince(province === selectedProvince ? "" : province);
-  };
-
-  const handleBookTypeChange = (type: "all" | "school" | "university") => {
-    setBookType(type);
-    if (type === "school") {
-      setSelectedUniversityYear("");
-      setSelectedUniversity("");
-    } else if (type === "university") {
-      setSelectedGrade("");
-    }
   };
 
   const anyActive = Boolean(
     searchQuery ||
     selectedCategory ||
     selectedCondition ||
-    selectedGrade ||
-    selectedCurriculum ||
-    selectedUniversityYear ||
-    selectedUniversity ||
     selectedProvince
   );
 
