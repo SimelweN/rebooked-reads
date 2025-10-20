@@ -1,4 +1,5 @@
 import { Button as UIButton } from "@/components/ui/button";
+import { Button as ReadyButton } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 const ReadyToGetStarted = () => {
