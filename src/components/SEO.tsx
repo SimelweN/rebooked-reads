@@ -46,7 +46,7 @@ const SEO = ({
 
     return () => {
       // Reset title to default when component unmounts
-      document.title = "ReBooked Solutions - Buy and Sell Textbooks Securely";
+      document.title = "ReBookedReads - Buy and Sell Readers & Novels Securely";
     };
   }, [title, description, keywords, image, url, type]);
 
