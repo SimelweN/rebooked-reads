@@ -147,13 +147,6 @@ const CreateListing = () => {
     if (!formData.quantity || formData.quantity < 1)
       newErrors.quantity = "Quantity must be at least 1";
 
-    if (bookType === "school" && !formData.grade) {
-      newErrors.grade = "Grade is required for school books";
-    }
-
-    if (bookType === "university" && !formData.universityYear) {
-      newErrors.universityYear = "University Year is required for university books";
-    }
 
     if (!bookImages.frontCover)
       newErrors.frontCover = "Front cover photo is required";
