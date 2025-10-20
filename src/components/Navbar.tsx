@@ -11,6 +11,7 @@ import {
   LogOut,
   UserPlus,
   Truck,
+  BookOpen,
   MapPin,
 } from "lucide-react";
 import AdminAccess from "./AdminAccess";
