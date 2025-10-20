@@ -57,20 +57,20 @@ const Index = () => {
       <section className="relative bg-white">
         <div className="absolute inset-0 bg-cover bg-center filter brightness-60" style={{ backgroundImage: `url('https://source.unsplash.com/1600x900/?books,novel,bookshelf')` }} aria-hidden />
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12">
+          <div className="flex items-center justify-center min-h-[60vh]">
             {/* Copy */}
             <div className="order-1">
               <div className="inline-block rounded-full bg-book-200 text-book-800 text-xs sm:text-sm px-3 py-1 mb-4">
                 Pre-Loved Pages, New Adventures
               </div>
-              <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
                 Discover Readers & Novels — Find your next great read
               </h1>
-              <p className="text-base sm:text-lg text-white/90 mb-6 sm:mb-8 max-w-xl">
+              <p className="text-base md:text-lg text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto">
                 Browse curated types of novels and secondhand books. Find great reads from fellow book lovers and give your books a new home.
               </p>
 
-              <form onSubmit={handleSearch} className="max-w-3xl mx-auto">
+              <form onSubmit={handleSearch} className="max-w-2xl mx-auto">
                 <div className="flex items-center gap-2 bg-white rounded-md shadow-md overflow-hidden">
                   <input
                     type="text"
@@ -85,7 +85,7 @@ const Index = () => {
                   </button>
                 </div>
               </form>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-4">
                 <Button size="lg" className="bg-book-600 hover:bg-book-700" onClick={() => navigate("/books")}>
                   Browse Books
                 </Button>
@@ -101,33 +101,6 @@ const Index = () => {
             </div>
 
           </div>
-        </div>
-      </section>
-
-      {/* Mobile-Optimized Search Section */}
-      <section className="py-8 sm:py-12 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-book-800">
-            Find Your Readers & Novels
-          </h2>
-          <form onSubmit={handleSearch} className="max-w-3xl mx-auto relative">
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
-              <input
-                type="text"
-                placeholder="Search by title, author, or subject..."
-                className="w-full p-3 sm:p-4 sm:pr-16 rounded-lg sm:rounded-r-none border border-gray-300 focus:outline-none focus:ring-2 focus:ring-book-500 focus:border-transparent text-base sm:text-lg"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <button
-                type="submit"
-                className="bg-book-600 text-white p-3 sm:p-2 rounded-lg sm:rounded-l-none sm:absolute sm:right-2 sm:top-2 hover:bg-book-700 transition duration-200 flex items-center justify-center"
-              >
-                <Search className="h-5 w-5 sm:h-6 sm:w-6 sm:mr-2" />
-                <span className="sm:hidden">Search</span>
-              </button>
-            </div>
-          </form>
         </div>
       </section>
 
