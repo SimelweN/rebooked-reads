@@ -75,7 +75,7 @@ const FeaturedBooks = () => {
               Featured Books
             </h2>
             <p className="text-lg text-gray-600">
-              Discover handpicked textbooks from our collection
+              Discover handpicked readers and novels from our collection
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -110,7 +110,7 @@ const FeaturedBooks = () => {
             Featured Books
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover handpicked textbooks from our collection. Quality books at
+            Discover handpicked readers and novels from our collection. Quality books at
             unbeatable prices.
           </p>
         </div>
