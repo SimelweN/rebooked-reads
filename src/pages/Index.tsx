@@ -56,7 +56,7 @@ const Index = () => {
 
       {/* Hero Section - image right on desktop, below text on mobile/tablet */}
       <section className="relative bg-white">
-        <div className="absolute inset-0 bg-cover bg-center filter brightness-75" style={{ backgroundImage: `url('/lovable-uploads/bd1bff70-5398-480d-ab05-1a01e839c2d0.png')` }} aria-hidden />
+        <div className="absolute inset-0 bg-cover bg-center filter brightness-60" style={{ backgroundImage: `url('https://source.unsplash.com/1600x900/?books,novel,bookshelf')` }} aria-hidden />
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12">
             {/* Copy */}
