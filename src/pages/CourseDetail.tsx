@@ -433,7 +433,7 @@ const CourseDetail = () => {
                     className="w-full bg-book-600 hover:bg-book-700 text-white text-sm sm:text-base"
                   >
                     <BookOpen className="w-4 h-4 mr-2" />
-                    Find Textbooks
+                    Find Novels
                   </Button>
 
                   <Button
