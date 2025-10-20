@@ -252,16 +252,16 @@ const BookListing = () => {
   return (
     <Layout>
       <SEO
-        title="Browse Textbooks - ReBooked Solutions"
-        description="Find affordable used textbooks for your studies. Browse our collection of university and school books from verified sellers."
-        keywords="textbooks, used books, university books, school books, study materials"
-        url="https://www.rebookedsolutions.co.za/books"
+        title="Browse Novels - ReBookedReads"
+        description="Discover readers and novels from our curated collection. Browse and buy novels from fellow readers across the country."
+        keywords="novels, readers, used books, fiction, buy, sell"
+        url="https://www.rebookedreads.co.za/books"
       />
 
       <div ref={pageTopRef} className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-8 px-2 sm:px-0">
           <h1 className="text-2xl sm:text-3xl font-bold text-book-800 mb-4 sm:mb-0">
-            Browse Books
+            Browse Novels
           </h1>
           {user?.email === "admin@rebookedsolutions.co.za" && (
             <div className="flex gap-2 flex-wrap">
