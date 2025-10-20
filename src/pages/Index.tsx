@@ -74,7 +74,7 @@ const Index = () => {
                 Pre-Loved Pages, New Adventures
               </div>
               <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
-                Discover Readers & Novels — Find your next great read
+                Your Next Favourite Book Awaits.
               </h1>
               <p className="text-base md:text-lg text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto">
                 Browse curated types of novels and secondhand books. Find great reads from fellow book lovers and give your books a new home.
