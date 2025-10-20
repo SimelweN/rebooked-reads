@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import CampusNavbar from "@/components/CampusNavbar";
 import SEO from "@/components/SEO";
 import { SOUTH_AFRICAN_UNIVERSITIES } from "@/constants/universities";
 import { University, Faculty, Degree } from "@/types/university";
@@ -57,7 +56,7 @@ const FacultyDetail = () => {
   if (!university || !faculty) {
     return (
       <>
-        <CampusNavbar />
+        
         <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
           <div className="text-center max-w-md mx-auto">
             <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
@@ -67,7 +66,7 @@ const FacultyDetail = () => {
               The faculty you're looking for doesn't exist.
             </p>
             <Button
-              onClick={() => navigate("/university-info")}
+              onClick={() => navigate("/")}
               className="bg-book-600 hover:bg-book-700"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -96,13 +95,13 @@ const FacultyDetail = () => {
   return (
     <>
       <SEO
-        title={`${faculty.name} - ${university.abbreviation} - ReBooked Campus`}
+        title={`${faculty.name} - ${university.abbreviation} - ReBookedReads`}
         description={faculty.description}
         keywords={`${faculty.name}, ${university.name}, ${university.province}, courses, programs`}
         url={`https://www.rebookedsolutions.co.za/university/${university.id}/faculty/${faculty.id}`}
       />
 
-      <CampusNavbar />
+      
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section with Study Theme - Mobile Optimized */}
