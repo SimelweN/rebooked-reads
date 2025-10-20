@@ -17,7 +17,7 @@ const ReadyToGetStarted = () => {
           </h2>
 
           <p className="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-10 text-white/90 leading-relaxed">
-            Join ReBooked Solutions to buy and sell textbooks securely. Save
+            Join ReBooked Solutions to buy and sell readers and novels securely. Save
             money and help others do the same!
           </p>
 
@@ -43,7 +43,7 @@ const ReadyToGetStarted = () => {
           </div>
 
           <div className="mt-8 text-sm sm:text-base text-white/80">
-            <p>Join thousands of students already saving money on textbooks</p>
+            <p>Join thousands of readers already saving money on books</p>
           </div>
         </div>
       </div>
