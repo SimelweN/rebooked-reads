@@ -117,7 +117,7 @@ const Index = () => {
       <section className="py-8 sm:py-12 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-book-800">
-            Find Your Textbooks
+            Find Your Readers & Novels
           </h2>
           <form onSubmit={handleSearch} className="max-w-3xl mx-auto relative">
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
