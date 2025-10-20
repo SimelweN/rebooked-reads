@@ -64,7 +64,7 @@ const Index = () => {
                 Pre-Loved Pages, New Adventures
               </div>
               <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-                Buy and Sell Textbooks with Ease
+                Discover Readers & Novels — Find your next great read
               </h1>
               <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-xl">
                 Buy affordable secondhand textbooks and give your old ones a new home—
