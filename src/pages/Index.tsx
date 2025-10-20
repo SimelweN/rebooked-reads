@@ -70,6 +70,22 @@ const Index = () => {
                 Buy affordable secondhand textbooks and give your old ones a new home—
                 all handled securely through ReBookedReads.
               </p>
+
+              <form onSubmit={handleSearch} className="max-w-3xl mx-auto">
+                <div className="flex items-center gap-2 bg-white rounded-md shadow-md overflow-hidden">
+                  <input
+                    type="text"
+                    aria-label="Search books"
+                    placeholder="Search readers, novels, authors, or keywords..."
+                    className="w-full px-4 py-3 text-gray-800 placeholder-gray-500 focus:outline-none"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                  <button type="submit" className="bg-book-600 hover:bg-book-700 text-white px-5 py-3">
+                    <Search className="w-5 h-5" />
+                  </button>
+                </div>
+              </form>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button size="lg" className="bg-book-600 hover:bg-book-700" onClick={() => navigate("/books")}>
                   Browse Books
