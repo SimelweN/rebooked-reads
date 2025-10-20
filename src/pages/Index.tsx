@@ -64,7 +64,7 @@ const Index = () => {
               <div className="inline-block rounded-full bg-book-200 text-book-800 text-xs sm:text-sm px-3 py-1 mb-4">
                 Pre-Loved Pages, New Adventures
               </div>
-              <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg">
                 Discover Readers & Novels — Find your next great read
               </h1>
               <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-xl">
