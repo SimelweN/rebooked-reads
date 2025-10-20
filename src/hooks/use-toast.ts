@@ -1,4 +1,5 @@
 import { toast as sonnerToast } from "sonner";
+import { useState } from "react";
 
 interface ToastOptions {
   title: string;
@@ -6,18 +7,21 @@ interface ToastOptions {
   variant?: "default" | "destructive";
 }
 
-export function useToast() {
-  const toast = ({ title, description, variant = "default" }: ToastOptions) => {
-    if (variant === "destructive") {
-      sonnerToast.error(title, {
-        description,
-      });
-    } else {
-      sonnerToast.success(title, {
-        description,
-      });
-    }
-  };
+export const toast = ({ title, description, variant = "default" }: ToastOptions) => {
+  if (variant === "destructive") {
+    sonnerToast.error(title, {
+      description,
+    });
+  } else {
+    sonnerToast.success(title, {
+      description,
+    });
+  }
+};
 
-  return { toast };
+export function useToast() {
+  return { 
+    toast,
+    toasts: [] // Empty array for compatibility with Toaster component
+  };
 }
