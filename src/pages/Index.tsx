@@ -54,10 +54,13 @@ const Index = () => {
       />
 
       {/* Hero Section - image right on desktop, below text on mobile/tablet */}
-      <section className="relative bg-white">
-        <div className="absolute inset-0 bg-cover bg-center filter brightness-60" style={{ backgroundImage: `url('https://source.unsplash.com/1600x900/?books,novel,bookshelf')` }} aria-hidden />
+      <section className="relative">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('https://source.unsplash.com/1600x900/?books,novel,bookshelf')` }} aria-hidden />
+        {/* dark overlay for contrast */}
+        <div className="absolute inset-0 bg-black/45" aria-hidden />
+
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="flex items-center justify-center min-h-screen">
             {/* Copy */}
             <div className="order-1 text-center w-full">
               <div className="inline-block rounded-full bg-book-200 text-book-800 text-xs sm:text-sm px-3 py-1 mb-4">
