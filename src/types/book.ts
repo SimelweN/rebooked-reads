@@ -13,10 +13,6 @@ export interface Book {
   additionalImages?: string[];
   sold: boolean;
   createdAt: string;
-  grade?: string;
-  universityYear?: string;
-  university?: string;
-  curriculum?: 'CAPS' | 'Cambridge' | 'IEB';
   province?: string;
   // Quantity fields
   initialQuantity?: number;
@@ -41,10 +37,6 @@ export interface BookFormData {
   backCover?: string;
   insidePages?: string;
   additionalImages?: string[];
-  grade?: string;
-  universityYear?: string;
-  university?: string;
-  curriculum?: 'CAPS' | 'Cambridge' | 'IEB';
   province?: string;
   // Quantity to create listing with
   quantity?: number;

@@ -6,24 +6,24 @@ const HowItWorks = () => {
       icon: BookOpen,
       title: "List Your Books",
       description:
-        "Create listings for your used textbooks in minutes. Add details, photos, and set your price.",
+        "Create listings for your pre-loved readers and novels in minutes. Add details, photos, and set your price.",
     },
     {
       icon: Search,
       title: "Browse & Buy",
       description:
-        "Find the textbooks you need from verified sellers. Safe and secure transactions guaranteed.",
+        "Find the stories you love from verified sellers. Safe and secure transactions guaranteed.",
     },
     {
       icon: Star,
       title: "Save Money",
       description:
-        "Buyers save on textbook costs, and sellers earn money on books they no longer need.",
+        "Buyers save on book costs, and sellers earn money on books they no longer need.",
     },
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-gray-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-r from-book-600 to-book-700 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-book-800 mb-4">

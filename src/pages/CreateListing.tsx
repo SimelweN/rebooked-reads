@@ -32,7 +32,6 @@ import {
 import { isFirstBookListing } from "@/services/userBookCountService";
 import { BookInformationForm } from "@/components/create-listing/BookInformationForm";
 import { PricingSection } from "@/components/create-listing/PricingSection";
-import { BookTypeSection } from "@/components/create-listing/BookTypeSection";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { canUserListBooks } from "@/services/addressValidationService";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -49,10 +48,6 @@ const CreateListing = () => {
     price: 0,
     condition: "Good",
     category: "",
-    curriculum: undefined,
-    grade: "",
-    universityYear: "",
-    university: "",
     imageUrl: "",
     frontCover: "",
     backCover: "",
@@ -70,7 +65,6 @@ const CreateListing = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [bookType, setBookType] = useState<"school" | "university">("school");
   const [showFirstUploadDialog, setShowFirstUploadDialog] = useState(false);
   const [showPostListingDialog, setShowPostListingDialog] = useState(false);
   const [showShareProfileDialog, setShowShareProfileDialog] = useState(false);
@@ -137,14 +131,6 @@ const CreateListing = () => {
     }
   };
 
-  const handleBookTypeChange = (type: "school" | "university") => {
-    setBookType(type);
-    if (type === "school") {
-      setFormData({ ...formData, universityYear: "", university: "" });
-    } else {
-      setFormData({ ...formData, grade: "" });
-    }
-  };
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -160,13 +146,6 @@ const CreateListing = () => {
     if (!formData.quantity || formData.quantity < 1)
       newErrors.quantity = "Quantity must be at least 1";
 
-    if (bookType === "school" && !formData.grade) {
-      newErrors.grade = "Grade is required for school books";
-    }
-
-    if (bookType === "university" && !formData.universityYear) {
-      newErrors.universityYear = "University Year is required for university books";
-    }
 
     if (!bookImages.frontCover)
       newErrors.frontCover = "Front cover photo is required";
@@ -450,13 +429,6 @@ const CreateListing = () => {
                     onInputChange={handleInputChange}
                   />
 
-                  <BookTypeSection
-                    bookType={bookType}
-                    formData={formData}
-                    errors={errors}
-                    onBookTypeChange={handleBookTypeChange}
-                    onSelectChange={handleSelectChange}
-                  />
                 </div>
               </div>
 

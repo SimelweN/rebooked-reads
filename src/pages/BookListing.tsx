@@ -40,17 +40,10 @@ const BookListing = () => {
     searchParams.get("category") || "",
   );
   const [selectedCondition, setSelectedCondition] = useState("");
-  const [selectedGrade, setSelectedGrade] = useState("");
-  const [selectedCurriculum, setSelectedCurriculum] = useState("");
-  const [selectedUniversityYear, setSelectedUniversityYear] = useState("");
-  const [selectedUniversity, setSelectedUniversity] = useState("");
   const [selectedProvince, setSelectedProvince] = useState(
     searchParams.get("province") || "",
   );
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
-  const [bookType, setBookType] = useState<"all" | "school" | "university">(
-    "all",
-  );
 
   // Memoize loadBooks function to prevent infinite loops
   const loadBooks = useCallback(async () => {
@@ -61,19 +54,12 @@ const BookListing = () => {
     try {
       const searchQuery = searchParams.get("search") || "";
       const category = searchParams.get("category") || "";
-      const grade = searchParams.get("grade") || "";
-      const curriculum = searchParams.get("curriculum") || "";
-      const universityYear = searchParams.get("universityYear") || "";
       const province = searchParams.get("province") || "";
 
       const filters: {
         search?: string;
         category?: string;
         condition?: string;
-        grade?: string;
-        curriculum?: 'CAPS' | 'Cambridge' | 'IEB';
-        universityYear?: string;
-        university?: string;
         province?: string;
         minPrice?: number;
         maxPrice?: number;
@@ -82,10 +68,6 @@ const BookListing = () => {
       if (searchQuery) filters.search = searchQuery;
       if (category) filters.category = category;
       if (selectedCondition) filters.condition = selectedCondition;
-      if (grade) filters.grade = grade;
-      if (curriculum || selectedCurriculum) filters.curriculum = (curriculum || selectedCurriculum) as any;
-      if (universityYear) filters.universityYear = universityYear;
-      if (selectedUniversity) filters.university = selectedUniversity;
       if (province || selectedProvince) filters.province = province || selectedProvince;
 
       if (priceRange[0] > 0) filters.minPrice = priceRange[0];
@@ -158,15 +140,6 @@ const BookListing = () => {
     if (selectedCategory) {
       newSearchParams.set("category", selectedCategory);
     }
-    if (selectedGrade) {
-      newSearchParams.set("grade", selectedGrade);
-    }
-    if (selectedUniversityYear) {
-      newSearchParams.set("universityYear", selectedUniversityYear);
-    }
-    if (selectedCurriculum) {
-      newSearchParams.set("curriculum", selectedCurriculum);
-    }
     if (selectedProvince) {
       newSearchParams.set("province", selectedProvince);
     }
@@ -176,8 +149,6 @@ const BookListing = () => {
   }, [
     searchQuery,
     selectedCategory,
-    selectedGrade,
-    selectedUniversityYear,
     selectedProvince,
     setSearchParams,
   ]);
@@ -186,13 +157,8 @@ const BookListing = () => {
     setSearchQuery("");
     setSelectedCategory("");
     setSelectedCondition("");
-    setSelectedGrade("");
-    setSelectedUniversityYear("");
-    setSelectedCurriculum("");
-    setSelectedUniversity("");
     setSelectedProvince("");
     setPriceRange([0, 1000]);
-    setBookType("all");
     setCurrentPage(1); // Reset to first page when clearing filters
     setSearchParams(new URLSearchParams());
   }, [setSearchParams]);
@@ -286,16 +252,16 @@ const BookListing = () => {
   return (
     <Layout>
       <SEO
-        title="Browse Textbooks - ReBooked Solutions"
-        description="Find affordable used textbooks for your studies. Browse our collection of university and school books from verified sellers."
-        keywords="textbooks, used books, university books, school books, study materials"
-        url="https://www.rebookedsolutions.co.za/books"
+        title="Browse Novels - ReBookedReads"
+        description="Discover readers and novels from our curated collection. Browse and buy novels from fellow readers across the country."
+        keywords="novels, readers, used books, fiction, buy, sell"
+        url="https://www.rebookedreads.co.za/books"
       />
 
       <div ref={pageTopRef} className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-8 px-2 sm:px-0">
           <h1 className="text-2xl sm:text-3xl font-bold text-book-800 mb-4 sm:mb-0">
-            Browse Books
+            Browse Novels
           </h1>
           {user?.email === "admin@rebookedsolutions.co.za" && (
             <div className="flex gap-2 flex-wrap">
@@ -334,18 +300,10 @@ const BookListing = () => {
             setSelectedCategory={setSelectedCategory}
             selectedCondition={selectedCondition}
             setSelectedCondition={setSelectedCondition}
-            selectedGrade={selectedGrade}
-            setSelectedGrade={setSelectedGrade}
-            selectedUniversityYear={selectedUniversityYear}
-            setSelectedUniversityYear={setSelectedUniversityYear}
-            selectedUniversity={selectedUniversity}
-            setSelectedUniversity={setSelectedUniversity}
             selectedProvince={selectedProvince}
             setSelectedProvince={setSelectedProvince}
             priceRange={priceRange}
             setPriceRange={setPriceRange}
-            bookType={bookType}
-            setBookType={setBookType}
             showFilters={showFilters}
             setShowFilters={setShowFilters}
             onSearch={handleSearch}

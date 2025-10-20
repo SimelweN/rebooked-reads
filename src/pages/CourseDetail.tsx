@@ -22,7 +22,6 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import CampusNavbar from "@/components/CampusNavbar";
 import SEO from "@/components/SEO";
 import { SOUTH_AFRICAN_UNIVERSITIES } from "@/constants/universities";
 import { University, Faculty, Degree } from "@/types/university";
@@ -62,7 +61,7 @@ const CourseDetail = () => {
   if (!university || !faculty || !course) {
     return (
       <>
-        <CampusNavbar />
+        
         <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
           <div className="text-center max-w-md mx-auto">
             <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
@@ -72,7 +71,7 @@ const CourseDetail = () => {
               The course you're looking for doesn't exist.
             </p>
             <Button
-              onClick={() => navigate("/university-info")}
+              onClick={() => navigate("/")}
               className="bg-book-600 hover:bg-book-700"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -89,7 +88,7 @@ const CourseDetail = () => {
   };
 
   const handleCalculateAPS = () => {
-    navigate("/university-info?tool=aps-calculator");
+    navigate("/");
   };
 
   // Graduation ceremony image for success theme
@@ -99,13 +98,13 @@ const CourseDetail = () => {
   return (
     <>
       <SEO
-        title={`${course.name} - ${university.abbreviation} - ReBooked Campus`}
+        title={`${course.name} - ${university.abbreviation} - ReBookedReads`}
         description={course.description}
         keywords={`${course.name}, ${faculty.name}, ${university.name}, course details, career prospects`}
         url={`https://www.rebookedsolutions.co.za/university/${university.id}/faculty/${faculty.id}/course/${course.id}`}
       />
 
-      <CampusNavbar />
+      
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section with Graduation Theme - Mobile Optimized */}
@@ -434,7 +433,7 @@ const CourseDetail = () => {
                     className="w-full bg-book-600 hover:bg-book-700 text-white text-sm sm:text-base"
                   >
                     <BookOpen className="w-4 h-4 mr-2" />
-                    Find Textbooks
+                    Find Novels
                   </Button>
 
                   <Button

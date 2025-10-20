@@ -4,9 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Filter, Search, School, GraduationCap, BookOpen, MapPin } from "lucide-react";
-import { UniversitySelector } from "@/components/ui/university-selector";
-import { UNIVERSITY_YEARS } from "@/constants/universities";
+import { Filter, Search, BookOpen, MapPin } from "lucide-react";
 import { CREATE_LISTING_CATEGORIES } from "@/constants/createListingCategories";
 
 interface BookFiltersProps {
@@ -16,20 +14,10 @@ interface BookFiltersProps {
   setSelectedCategory: (category: string) => void;
   selectedCondition: string;
   setSelectedCondition: (condition: string) => void;
-  selectedGrade: string;
-  setSelectedGrade: (grade: string) => void;
-  selectedCurriculum: string;
-  setSelectedCurriculum: (curriculum: string) => void;
-  selectedUniversityYear: string;
-  setSelectedUniversityYear: (year: string) => void;
-  selectedUniversity: string;
-  setSelectedUniversity: (university: string) => void;
   selectedProvince: string;
   setSelectedProvince: (province: string) => void;
   priceRange: [number, number];
   setPriceRange: (range: [number, number]) => void;
-  bookType: "all" | "school" | "university";
-  setBookType: (type: "all" | "school" | "university") => void;
   showFilters: boolean;
   setShowFilters: (show: boolean) => void;
   onSearch: (e: React.FormEvent) => void;
@@ -44,20 +32,10 @@ const BookFilters = ({
   setSelectedCategory,
   selectedCondition,
   setSelectedCondition,
-  selectedGrade,
-  setSelectedGrade,
-  selectedCurriculum,
-  setSelectedCurriculum,
-  selectedUniversityYear,
-  setSelectedUniversityYear,
-  selectedUniversity,
-  setSelectedUniversity,
   selectedProvince,
   setSelectedProvince,
   priceRange,
   setPriceRange,
-  bookType,
-  setBookType,
   showFilters,
   setShowFilters,
   onSearch,
@@ -66,21 +44,6 @@ const BookFilters = ({
 }: BookFiltersProps) => {
   const categories = CREATE_LISTING_CATEGORIES;
   const conditions = ["New", "Good", "Better", "Average", "Below Average"];
-  const grades = [
-    "Grade 1",
-    "Grade 2",
-    "Grade 3",
-    "Grade 4",
-    "Grade 5",
-    "Grade 6",
-    "Grade 7",
-    "Grade 8",
-    "Grade 9",
-    "Grade 10",
-    "Grade 11",
-    "Grade 12",
-  ];
-  const curricula = ["CAPS", "Cambridge", "IEB"];
   const provinces = [
     "Eastern Cape",
     "Free State",
@@ -101,52 +64,14 @@ const BookFilters = ({
     setSelectedCondition(condition === selectedCondition ? "" : condition);
   };
 
-  const handleGradeChange = (grade: string) => {
-    setSelectedGrade(grade === selectedGrade ? "" : grade);
-    if (grade && grade !== selectedGrade) {
-      setSelectedUniversityYear("");
-      setBookType("school");
-    }
-  };
-
-  const handleUniversityYearChange = (year: string) => {
-    setSelectedUniversityYear(year === selectedUniversityYear ? "" : year);
-    if (year && year !== selectedUniversityYear) {
-      setSelectedGrade("");
-      setBookType("university");
-    }
-  };
-
-  const handleUniversityChange = (university: string) => {
-    setSelectedUniversity(university);
-    if (university) {
-      setSelectedGrade("");
-      setBookType("university");
-    }
-  };
-
   const handleProvinceChange = (province: string) => {
     setSelectedProvince(province === selectedProvince ? "" : province);
-  };
-
-  const handleBookTypeChange = (type: "all" | "school" | "university") => {
-    setBookType(type);
-    if (type === "school") {
-      setSelectedUniversityYear("");
-      setSelectedUniversity("");
-    } else if (type === "university") {
-      setSelectedGrade("");
-    }
   };
 
   const anyActive = Boolean(
     searchQuery ||
     selectedCategory ||
     selectedCondition ||
-    selectedGrade ||
-    selectedCurriculum ||
-    selectedUniversityYear ||
-    selectedUniversity ||
     selectedProvince
   );
 
@@ -206,126 +131,6 @@ const BookFilters = ({
             </div>
           </form>
 
-          {/* Book Type Filter */}
-          <div className="mb-6">
-            <h3 className="text-sm font-medium text-gray-700 mb-2">
-              Book Type
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              <Button
-                variant={bookType === "all" ? "default" : "outline"}
-                size="sm"
-                onClick={() => handleBookTypeChange("all")}
-                className="flex items-center"
-              >
-                <BookOpen className="mr-1 h-4 w-4" />
-                All
-              </Button>
-              <Button
-                variant={bookType === "school" ? "default" : "outline"}
-                size="sm"
-                onClick={() => handleBookTypeChange("school")}
-                className="flex items-center"
-              >
-                <School className="mr-1 h-4 w-4" />
-                School
-              </Button>
-              <Button
-                variant={bookType === "university" ? "default" : "outline"}
-                size="sm"
-                onClick={() => handleBookTypeChange("university")}
-                className="flex items-center"
-              >
-                <GraduationCap className="mr-1 h-4 w-4" />
-                University
-              </Button>
-            </div>
-          </div>
-
-          {/* Grade Filter */}
-          {(bookType === "school" || bookType === "all") && (
-            <div className="mb-6">
-              <h3 className="text-sm font-medium text-gray-700 mb-2">Grade</h3>
-              <div className="grid grid-cols-2 gap-2">
-                {grades.map((grade) => (
-                  <div key={grade} className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id={`grade-${grade}`}
-                      checked={selectedGrade === grade}
-                      onChange={() => handleGradeChange(grade)}
-                      className="h-4 w-4 text-book-600 focus:ring-book-500 border-gray-300 rounded"
-                    />
-                    <label
-                      htmlFor={`grade-${grade}`}
-                      className="ml-2 text-sm text-gray-700"
-                    >
-                      {grade}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Curriculum Filter */}
-          {(bookType === "school" || bookType === "all") && (
-            <div className="mb-6">
-              <h3 className="text-sm font-medium text-gray-700 mb-2">Curriculum</h3>
-              <Select value={selectedCurriculum} onValueChange={(value) => setSelectedCurriculum(value)}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select curriculum" />
-                </SelectTrigger>
-                <SelectContent>
-                  {curricula.map((c) => (
-                    <SelectItem key={c} value={c}>{c}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          )}
-
-          {/* University Selection */}
-          {(bookType === "university" || bookType === "all") && (
-            <div className="mb-6">
-              <h3 className="text-sm font-medium text-gray-700 mb-2">
-                University
-              </h3>
-              <UniversitySelector
-                value={selectedUniversity}
-                onValueChange={handleUniversityChange}
-                placeholder="Select university..."
-              />
-            </div>
-          )}
-
-          {/* University Year Filter */}
-          {(bookType === "university" || bookType === "all") && (
-            <div className="mb-6">
-              <h3 className="text-sm font-medium text-gray-700 mb-2">
-                University Year
-              </h3>
-              <div className="space-y-2">
-                {UNIVERSITY_YEARS.map((year) => (
-                  <div key={year} className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id={`year-${year}`}
-                      checked={selectedUniversityYear === year}
-                      onChange={() => handleUniversityYearChange(year)}
-                      className="h-4 w-4 text-book-600 focus:ring-book-500 border-gray-300 rounded"
-                    />
-                    <label
-                      htmlFor={`year-${year}`}
-                      className="ml-2 text-sm text-gray-700"
-                    >
-                      {year}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
 
           {/* Category Filter */}
           <div className="mb-6">

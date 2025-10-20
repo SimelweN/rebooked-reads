@@ -21,10 +21,13 @@ const Footer = () => {
               className="flex items-center"
               onClick={handleLinkClick}
             >
-              <Glasses className="h-6 w-6 text-book-600" />
-              <span className="ml-2 text-xl font-bold text-book-800">
-                ReBookedReads
-              </span>
+              <div className="w-8 h-8 bg-book-600 rounded-lg flex items-center justify-center">
+                <Glasses className="h-5 w-5 text-white" />
+              </div>
+              <div className="ml-2">
+                <div className="text-xl font-bold text-book-800">ReBookedReads</div>
+                <div className="text-xs text-gray-500">Powered by ReBooked Solutions</div>
+              </div>
             </Link>
             <p className="text-gray-600 text-sm">
               Buy and sell new and used books through our secure platform. No
@@ -48,11 +51,11 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/books?category=textbooks"
+                  to="/books?category=novels"
                   className="text-gray-600 hover:text-book-600 text-sm"
                   onClick={handleLinkClick}
                 >
-                  Textbooks
+                  Novels
                 </Link>
               </li>
               <li>
@@ -194,7 +197,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-200 pt-6 mt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500">
-            &copy; {currentYear} ReBookedReads. All rights reserved.
+            &copy; {currentYear} ReBooked Solutions. All rights reserved.
           </p>
 
           {/* Social Media Links */}

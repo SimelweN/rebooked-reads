@@ -1,4 +1,5 @@
 import { useState, memo } from "react";
+import { useState, memo } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,7 @@ import {
   Truck,
   BookOpen,
   MapPin,
+  Eye,
 } from "lucide-react";
 import AdminAccess from "./AdminAccess";
 import CartButton from "./CartButton";
@@ -78,8 +80,9 @@ const Navbar = () => {
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-book-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Glasses className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-                <span className="text-lg sm:text-xl font-bold text-book-600 truncate">
-                  ReBookedReads
+                <span className="text-lg sm:text-xl truncate">
+                  <span className="font-extrabold text-book-600">rebooked</span>
+                  <span className="ml-1 text-book-600 text-hollow">Reads</span>
                 </span>
               </Link>
             </div>
@@ -130,14 +133,13 @@ const Navbar = () => {
               <div className="w-7 h-7 sm:w-8 sm:h-8 bg-book-600 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Glasses className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
-              <span className="text-lg sm:text-xl font-bold text-book-600 truncate">
-                <span className="hidden sm:inline">
-                  ReBookedReads
+              <div className="flex flex-col">
+                <span className="text-lg sm:text-xl truncate">
+                  <span className="hidden sm:inline"><span className="font-extrabold text-book-600">ReBooked</span> <span className="text-book-600 text-hollow">Reads</span></span>
+                  <span className="sm:hidden"><span className="font-extrabold text-book-600">ReBooked</span> <span className="text-book-600 text-hollow">Reads</span></span>
                 </span>
-                <span className="sm:hidden">
-                  ReBookedReads
-                </span>
-              </span>
+                <span className="text-xs text-gray-500 -mt-1">Powered by ReBooked Solutions</span>
+              </div>
             </Link>
           </div>
 
@@ -163,6 +165,16 @@ const Navbar = () => {
             >
               <Truck className="w-4 h-4" />
               <span>Shipping</span>
+            </Link>
+
+            <Link
+              to="/transparency"
+              className={`flex items-center space-x-1 text-sm font-medium transition-colors hover:text-book-600 ${
+                isActive("/transparency") ? "text-book-600" : "text-gray-700"
+              }`}
+            >
+              <Eye className="w-4 h-4" />
+              <span>Transparency</span>
             </Link>
 
             {/* DISABLED - Locker functionality removed */}
@@ -290,6 +302,19 @@ const Navbar = () => {
               >
                 <Truck className="w-5 h-5" />
                 <span>Shipping</span>
+              </Link>
+
+              <Link
+                to="/transparency"
+                className={`flex items-center space-x-3 px-4 py-3 text-base font-medium rounded-md transition-colors min-h-[44px] ${
+                  isActive("/transparency")
+                    ? "bg-book-50 text-book-600"
+                    : "text-gray-700 hover:bg-gray-50 hover:text-book-600"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Eye className="w-5 h-5" />
+                <span>Transparency</span>
               </Link>
 
               {/* DISABLED - Locker functionality removed */}

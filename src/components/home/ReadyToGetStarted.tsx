@@ -9,7 +9,7 @@ const ReadyToGetStarted = () => {
   const isAuthenticated = false;
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-r from-book-600 to-book-700">
+    <section className="py-16 sm:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center text-white max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
@@ -17,7 +17,7 @@ const ReadyToGetStarted = () => {
           </h2>
 
           <p className="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-10 text-white/90 leading-relaxed">
-            Join ReBooked Solutions to buy and sell textbooks securely. Save
+            Join ReBooked Solutions to buy and sell readers and novels securely. Save
             money and help others do the same!
           </p>
 
@@ -43,7 +43,7 @@ const ReadyToGetStarted = () => {
           </div>
 
           <div className="mt-8 text-sm sm:text-base text-white/80">
-            <p>Join thousands of students already saving money on textbooks</p>
+            <p>Join thousands of readers already saving money on books</p>
           </div>
         </div>
       </div>

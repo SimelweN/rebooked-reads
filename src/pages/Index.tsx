@@ -3,7 +3,7 @@ import { useNavigate, Link, useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { Search, BookOpen, Telescope, Heart, Star } from "lucide-react";
+import { Search, BookOpen, Telescope, Heart, Star, Fingerprint, Rocket } from "lucide-react";
 import FeaturedBooks from "@/components/home/FeaturedBooks";
 import HowItWorks from "@/components/home/HowItWorks";
 import ReadyToGetStarted from "@/components/home/ReadyToGetStarted";
@@ -38,8 +38,8 @@ const Index = () => {
   const categories = [
     { name: "Fiction", icon: <BookOpen className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
     { name: "Romance", icon: <Heart className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
-    { name: "Mystery", icon: <Telescope className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
-    { name: "Sci‑Fi", icon: <Telescope className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
+    { name: "Mystery", icon: <Fingerprint className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
+    { name: "Sci‑Fi", icon: <Rocket className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
     { name: "Non‑Fiction", icon: <BookOpen className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
     { name: "Classics", icon: <Star className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
   ];
@@ -57,7 +57,7 @@ const Index = () => {
       <section className="relative">
         {/* Background image as an actual <img> for reliability */}
         <img
-          src={"https://source.unsplash.com/1600x900/?bookshelf,books,novel"}
+          src={"https://images.pexels.com/photos/5984591/pexels-photo-5984591.jpeg"}
           alt="Books background"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
@@ -90,8 +90,9 @@ const Index = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
-                  <button type="submit" className="bg-book-600 hover:bg-book-700 text-white px-6 py-4">
+                  <button type="submit" className="bg-book-600 hover:bg-book-700 text-white px-6 py-3 flex items-center gap-2">
                     <Search className="w-5 h-5" />
+                    <span className="font-medium">Search</span>
                   </button>
                 </div>
               </form>
