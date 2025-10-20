@@ -101,15 +101,6 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Image */}
-            <div className="order-2">
-              <img
-                src="/lovable-uploads/bd1bff70-5398-480d-ab05-1a01e839c2d0.png"
-                alt="Three students smiling with textbooks"
-                className="w-full rounded-xl shadow-lg object-cover aspect-[4/3]"
-                loading="eager"
-              />
-            </div>
           </div>
         </div>
       </section>
