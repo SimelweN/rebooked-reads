@@ -204,7 +204,7 @@ const PrivateInstitutionProfile: React.FC = () => {
                       <Link to={`/books?search=${encodeURIComponent(institution.abbreviation || institution.name)}`} className="w-full sm:w-auto">
                         <Button size="lg" className="w-full bg-book-600 hover:bg-book-700 text-white">
                           <BookOpen className="h-5 w-5 mr-2" />
-                          Find Textbooks
+                          Find Novels
                         </Button>
                       </Link>
                       {institution.contact?.website && (
