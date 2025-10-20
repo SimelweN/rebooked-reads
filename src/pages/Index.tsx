@@ -55,11 +55,20 @@ const Index = () => {
 
       {/* Hero Section - image right on desktop, below text on mobile/tablet */}
       <section className="relative">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F83ba12a64fe144bd9127799d5d97205b%2F90312a0c75044025a88d739980b92368?format=webp&width=1600')` }} aria-hidden />
-        {/* dark overlay for contrast */}
-        <div className="absolute inset-0 bg-black/25" aria-hidden />
+        {/* Background image as an actual <img> for reliability */}
+        <img
+          src={
+            "https://cdn.builder.io/api/v1/image/assets%2F83ba12a64fe144bd9127799d5d97205b%2F5d857431a0c8471194479c1565e42a7e?format=webp&width=1600"
+          }
+          alt="Books background"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
 
-        <div className="container mx-auto px-4">
+        {/* dark overlay for contrast */}
+        <div className="absolute inset-0 bg-black/25 z-10" aria-hidden />
+
+        <div className="container mx-auto px-4 relative z-20">
           <div className="flex items-start justify-center py-12">
             {/* Copy */}
             <div className="order-1 text-center w-full">
