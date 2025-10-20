@@ -32,7 +32,6 @@ import {
 import { isFirstBookListing } from "@/services/userBookCountService";
 import { BookInformationForm } from "@/components/create-listing/BookInformationForm";
 import { PricingSection } from "@/components/create-listing/PricingSection";
-import { BookTypeSection } from "@/components/create-listing/BookTypeSection";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { canUserListBooks } from "@/services/addressValidationService";
 import { Alert, AlertDescription } from "@/components/ui/alert";
