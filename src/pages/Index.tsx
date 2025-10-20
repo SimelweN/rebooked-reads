@@ -36,12 +36,12 @@ const Index = () => {
   };
 
   const categories = [
-    { name: "Computer Science", icon: <Laptop className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
-    { name: "Mathematics", icon: <Sigma className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
-    { name: "Biology", icon: <Dna className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
-    { name: "Chemistry", icon: <FlaskConical className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
-    { name: "Physics", icon: <Telescope className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
-    { name: "Economics", icon: <TrendingUp className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
+    { name: "Fiction", icon: <BookOpen className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
+    { name: "Romance", icon: <Heart className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
+    { name: "Mystery", icon: <Telescope className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
+    { name: "Sci‑Fi", icon: <Telescope className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
+    { name: "Non‑Fiction", icon: <BookOpen className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
+    { name: "Classics", icon: <Star className="h-7 w-7 sm:h-10 sm:w-10 text-book-700" /> },
   ];
 
   return (
