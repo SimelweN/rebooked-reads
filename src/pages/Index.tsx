@@ -60,7 +60,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/45" aria-hidden />
 
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center min-h-screen">
+          <div className="flex items-start justify-center py-20">
             {/* Copy */}
             <div className="order-1 text-center w-full">
               <div className="inline-block rounded-full bg-book-200 text-book-800 text-xs sm:text-sm px-3 py-1 mb-4">
