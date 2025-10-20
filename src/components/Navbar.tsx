@@ -11,7 +11,6 @@ import {
   LogOut,
   UserPlus,
   Truck,
-  GraduationCap,
   MapPin,
 } from "lucide-react";
 import AdminAccess from "./AdminAccess";
