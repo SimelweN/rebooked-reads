@@ -1,4 +1,4 @@
-import { Button as UIButton } from "@/components/ui/button";
+import { Button as ReadyButton } from "@/components/ui/button";
 import { Button as ReadyButton } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -23,7 +23,7 @@ const ReadyToGetStarted = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center max-w-lg mx-auto">
-            <UIButton
+            <ReadyButton
               onClick={() =>
                 navigate(isAuthenticated ? "/create-listing" : "/register")
               }
@@ -31,16 +31,16 @@ const ReadyToGetStarted = () => {
               className="w-full sm:w-auto bg-white text-book-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg"
             >
               {isAuthenticated ? "List Your Books" : "Sign Up Now"}
-            </UIButton>
+            </ReadyButton>
 
-            <UIButton
+            <ReadyButton
               onClick={() => navigate("/books")}
               size="lg"
               variant="outline"
               className="w-full sm:w-auto border-2 border-book-600 text-book-600 hover:bg-book-600 hover:text-white font-semibold px-8 py-4 text-lg bg-white/10 backdrop-blur-sm"
             >
               Browse Books
-            </UIButton>
+            </ReadyButton>
           </div>
 
           <div className="mt-8 text-sm sm:text-base text-book-600">
