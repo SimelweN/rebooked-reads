@@ -30,10 +30,7 @@ import CreateListing from "./pages/CreateListing";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 
-// University Pages
-import UniversityInfo from "./pages/UniversityInfo";
-import UniversityProfile from "./pages/UniversityProfile";
-import PrivateInstitutionProfile from "./pages/PrivateInstitutionProfile";
+// University Pages removed
 
 // Auth Pages
 import Login from "./pages/Login";
@@ -133,19 +130,7 @@ function App() {
                           </ProtectedRoute>
                         }
                       />
-                      <Route
-                        path="/university-info"
-                        element={<UniversityInfo />}
-                      />
-                      <Route
-                        path="/university/:id"
-                        element={<UniversityProfile />}
-                      />
-                      <Route
-                        path="/private-institution/:id"
-                        element={<PrivateInstitutionProfile />}
-                      />
-                      <Route
+                                                                                        <Route
                         path="/seller/:sellerId"
                         element={<SellerProfile />}
                       />
