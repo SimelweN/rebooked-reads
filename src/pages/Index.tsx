@@ -67,8 +67,7 @@ const Index = () => {
                 Discover Readers & Novels — Find your next great read
               </h1>
               <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-xl">
-                Buy affordable secondhand textbooks and give your old ones a new home—
-                all handled securely through ReBookedReads.
+                Browse curated types of novels and secondhand books. Find great reads from fellow book lovers and give your books a new home.
               </p>
 
               <form onSubmit={handleSearch} className="max-w-3xl mx-auto">
