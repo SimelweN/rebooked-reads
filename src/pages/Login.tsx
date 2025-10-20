@@ -346,7 +346,7 @@ const Login = () => {
           <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
             <div className="p-6 sm:p-8">
               <h1 className="text-2xl font-bold text-center text-gray-800 mb-8">
-                Login to ReBooked Solutions
+                Login to ReBookedReads
               </h1>
 
               <form onSubmit={handleSubmit} className="space-y-6">

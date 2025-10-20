@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import {
-  BookOpen,
+  Glasses,
   Menu,
   X,
   Plus,
@@ -11,7 +11,7 @@ import {
   LogOut,
   UserPlus,
   Truck,
-  GraduationCap,
+  BookOpen,
   MapPin,
 } from "lucide-react";
 import AdminAccess from "./AdminAccess";
@@ -76,12 +76,10 @@ const Navbar = () => {
                 className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-book-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  <Glasses className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <span className="text-lg sm:text-xl font-bold text-book-600 truncate">
-                  {location.pathname.startsWith("/university")
-                    ? "ReBooked Campus"
-                    : "ReBooked Solutions"}
+                  ReBookedReads
                 </span>
               </Link>
             </div>
@@ -93,12 +91,6 @@ const Navbar = () => {
                 className="text-gray-700 hover:text-book-600 px-3 py-2 text-sm font-medium transition-colors"
               >
                 Books
-              </Link>
-              <Link
-                to="/university-info"
-                className="text-gray-700 hover:text-book-600 px-3 py-2 text-sm font-medium transition-colors"
-              >
-                Campus
               </Link>
               <div className="w-20 h-10 bg-gray-200 rounded animate-pulse"></div>
             </div>
@@ -136,18 +128,14 @@ const Navbar = () => {
               className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
             >
               <div className="w-7 h-7 sm:w-8 sm:h-8 bg-book-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                <Glasses className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               <span className="text-lg sm:text-xl font-bold text-book-600 truncate">
                 <span className="hidden sm:inline">
-                  {location.pathname.startsWith("/university")
-                    ? "ReBooked Campus"
-                    : "ReBooked Solutions"}
+                  ReBookedReads
                 </span>
                 <span className="sm:hidden">
-                  {location.pathname.startsWith("/university")
-                    ? "ReBooked Campus"
-                    : "ReBooked Solutions"}
+                  ReBookedReads
                 </span>
               </span>
             </Link>
@@ -166,17 +154,6 @@ const Navbar = () => {
               <span className="lg:hidden">Books</span>
             </Link>
 
-            <Link
-              to="/university-info"
-              className={`flex items-center space-x-1 text-sm font-medium transition-colors hover:text-book-600 ${
-                location.pathname.startsWith("/university")
-                  ? "text-book-600"
-                  : "text-gray-700"
-              }`}
-            >
-              <GraduationCap className="w-4 h-4" />
-              <span>Campus</span>
-            </Link>
 
             <Link
               to="/shipping"
@@ -301,18 +278,6 @@ const Navbar = () => {
                 <span>Browse Books</span>
               </Link>
 
-              <Link
-                to="/university-info"
-                className={`flex items-center space-x-3 px-4 py-3 text-base font-medium rounded-md transition-colors min-h-[44px] ${
-                  location.pathname.startsWith("/university")
-                    ? "bg-book-50 text-book-600"
-                    : "text-gray-700 hover:bg-gray-50 hover:text-book-600"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <GraduationCap className="w-5 h-5" />
-                <span>Campus</span>
-              </Link>
 
               <Link
                 to="/shipping"
