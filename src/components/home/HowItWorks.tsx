@@ -6,19 +6,19 @@ const HowItWorks = () => {
       icon: BookOpen,
       title: "List Your Books",
       description:
-        "Create listings for your used textbooks in minutes. Add details, photos, and set your price.",
+        "Create listings for your pre-loved readers and novels in minutes. Add details, photos, and set your price.",
     },
     {
       icon: Search,
       title: "Browse & Buy",
       description:
-        "Find the textbooks you need from verified sellers. Safe and secure transactions guaranteed.",
+        "Find the stories you love from verified sellers. Safe and secure transactions guaranteed.",
     },
     {
       icon: Star,
       title: "Save Money",
       description:
-        "Buyers save on textbook costs, and sellers earn money on books they no longer need.",
+        "Buyers save on book costs, and sellers earn money on books they no longer need.",
     },
   ];
 
