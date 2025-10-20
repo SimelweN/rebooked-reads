@@ -57,10 +57,10 @@ const Index = () => {
       <section className="relative">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F83ba12a64fe144bd9127799d5d97205b%2F90312a0c75044025a88d739980b92368?format=webp&width=1600')` }} aria-hidden />
         {/* dark overlay for contrast */}
-        <div className="absolute inset-0 bg-black/45" aria-hidden />
+        <div className="absolute inset-0 bg-black/25" aria-hidden />
 
         <div className="container mx-auto px-4">
-          <div className="flex items-start justify-center py-20">
+          <div className="flex items-start justify-center py-12">
             {/* Copy */}
             <div className="order-1 text-center w-full">
               <div className="inline-block rounded-full bg-book-200 text-book-800 text-xs sm:text-sm px-3 py-1 mb-4">
@@ -74,28 +74,28 @@ const Index = () => {
               </p>
 
               <form onSubmit={handleSearch} className="max-w-2xl mx-auto">
-                <div className="flex items-center gap-2 bg-white rounded-md shadow-md overflow-hidden">
+                <div className="flex items-center gap-2 bg-white/95 rounded-md shadow-lg overflow-hidden">
                   <input
                     type="text"
                     aria-label="Search books"
                     placeholder="Search readers, novels, authors, or keywords..."
-                    className="w-full px-4 py-3 text-gray-800 placeholder-gray-500 focus:outline-none"
+                    className="w-full px-5 py-4 text-gray-800 placeholder-gray-500 focus:outline-none"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
-                  <button type="submit" className="bg-book-600 hover:bg-book-700 text-white px-5 py-3">
+                  <button type="submit" className="bg-book-600 hover:bg-book-700 text-white px-6 py-4">
                     <Search className="w-5 h-5" />
                   </button>
                 </div>
               </form>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-4">
-                <Button size="lg" className="bg-book-600 hover:bg-book-700" onClick={() => navigate("/books")}>
+                <Button size="lg" className="bg-book-600 hover:bg-book-700 px-6 py-3" onClick={() => navigate("/books")}>
                   Browse Books
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-book-600 text-book-700 hover:bg-book-100"
+                  className="border-book-600 text-book-700 hover:bg-book-100 px-6 py-3"
                   onClick={() => navigate("/create-listing")}
                 >
                   Sell Your Books
