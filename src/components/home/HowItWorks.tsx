@@ -40,7 +40,7 @@ const HowItWorks = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-xl sm:text-2xl font-bold text-book-800 mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
                 {step.title}
               </h3>
 
