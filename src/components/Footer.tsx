@@ -197,7 +197,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-200 pt-6 mt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500">
-            &copy; {currentYear} ReBookedReads. All rights reserved.
+            &copy; {currentYear} ReBooked Solutions. All rights reserved.
           </p>
 
           {/* Social Media Links */}
