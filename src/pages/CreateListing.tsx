@@ -132,14 +132,6 @@ const CreateListing = () => {
     }
   };
 
-  const handleBookTypeChange = (type: "school" | "university") => {
-    setBookType(type);
-    if (type === "school") {
-      setFormData({ ...formData, universityYear: "", university: "" });
-    } else {
-      setFormData({ ...formData, grade: "" });
-    }
-  };
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
