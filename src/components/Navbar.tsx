@@ -313,6 +313,7 @@ const Navbar = () => {
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
+                <Eye className="w-5 h-5" />
                 <span>Transparency</span>
               </Link>
 
