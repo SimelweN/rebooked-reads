@@ -54,19 +54,12 @@ const BookListing = () => {
     try {
       const searchQuery = searchParams.get("search") || "";
       const category = searchParams.get("category") || "";
-      const grade = searchParams.get("grade") || "";
-      const curriculum = searchParams.get("curriculum") || "";
-      const universityYear = searchParams.get("universityYear") || "";
       const province = searchParams.get("province") || "";
 
       const filters: {
         search?: string;
         category?: string;
         condition?: string;
-        grade?: string;
-        curriculum?: 'CAPS' | 'Cambridge' | 'IEB';
-        universityYear?: string;
-        university?: string;
         province?: string;
         minPrice?: number;
         maxPrice?: number;
@@ -75,10 +68,6 @@ const BookListing = () => {
       if (searchQuery) filters.search = searchQuery;
       if (category) filters.category = category;
       if (selectedCondition) filters.condition = selectedCondition;
-      if (grade) filters.grade = grade;
-      if (curriculum || selectedCurriculum) filters.curriculum = (curriculum || selectedCurriculum) as any;
-      if (universityYear) filters.universityYear = universityYear;
-      if (selectedUniversity) filters.university = selectedUniversity;
       if (province || selectedProvince) filters.province = province || selectedProvince;
 
       if (priceRange[0] > 0) filters.minPrice = priceRange[0];
