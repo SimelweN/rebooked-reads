@@ -8,20 +8,21 @@ export interface SEOConfig {
 }
 
 export const DEFAULT_SEO: SEOConfig = {
-  title: "Rebooked Solutions - Buy & Sell Textbooks",
+  title: "ReBookedReads - Buy & Sell Readers & Novels",
   description:
-    "Find affordable textbooks for university and school. Buy and sell used textbooks with confidence on South Africa's trusted marketplace.",
+    "Discover and trade pre-loved readers and novels. Buy and sell books with confidence on South Africa's trusted marketplace.",
   image: "https://rebookedsolutions.co.za/og-image.jpg",
   url: "https://rebookedsolutions.co.za",
   type: "website",
   keywords: [
-    "textbooks",
-    "university",
-    "school",
+    "readers",
+    "novels",
+    "books",
     "buy",
     "sell",
     "south africa",
-    "education",
+    "fiction",
+    "marketplace",
   ],
 };
 
@@ -47,7 +48,7 @@ export const generateBookSEO = (book: {
     description: `Buy "${book.title}" by ${book.author} for R${book.price.toLocaleString()}. ${book.description ? book.description.substring(0, 100) + "..." : "Available on Rebooked Solutions."}`,
     image: book.imageUrl,
     type: "product",
-    keywords: ["textbook", book.title, book.author, "university", "school"],
+    keywords: ["book", book.title, book.author, "fiction", "readers"],
   });
 };
 
