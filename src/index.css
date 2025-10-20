@@ -1,88 +1,476 @@
+/* Import existing styles */
+@import "./styles/university-profile-mobile.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Welcome toast styling for email confirmation */
+.welcome-toast {
+  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3), 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  animation: welcomeSlideIn 0.5s ease-out !important;
+  font-size: 15px !important;
+  min-width: 320px !important;
+  z-index: 9999 !important;
+  position: relative !important;
+}
+
+@keyframes welcomeSlideIn {
+  0% {
+    transform: translateX(100%) scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile-specific welcome toast adjustments */
+@media (max-width: 768px) {
+  .welcome-toast {
+    min-width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    margin: 0 12px !important;
+    font-size: 14px !important;
+    top: 10px !important;
+    right: 12px !important;
+    left: 12px !important;
+    position: fixed !important;
+    animation: welcomeMobileSlideIn 0.6s ease-out !important;
+  }
+}
+
+@keyframes welcomeMobileSlideIn {
+  0% {
+    transform: translateY(-100%) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Custom book animation for password visibility toggle */
+@keyframes bookOpen {
+  0% {
+    transform: perspective(400px) rotateY(0deg) scale(1);
+  }
+  50% {
+    transform: perspective(400px) rotateY(-15deg) scale(1.05);
+  }
+  100% {
+    transform: perspective(400px) rotateY(0deg) scale(1);
+  }
+}
+
+@keyframes bookClose {
+  0% {
+    transform: perspective(400px) rotateY(0deg) scale(1);
+  }
+  50% {
+    transform: perspective(400px) rotateY(15deg) scale(1.05);
+  }
+  100% {
+    transform: perspective(400px) rotateY(0deg) scale(1);
+  }
+}
+
+.book-open-animation {
+  animation: bookOpen 0.4s ease-in-out;
+}
+
+.book-close-animation {
+  animation: bookClose 0.4s ease-in-out;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* DEBUG: Ensure content is visible */
+html,
+body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#root {
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 100vh !important;
+  background-color: #f9fafb !important;
+}
+
+/* Global Mobile Responsiveness Fixes */
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow */
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Ensure containers don't break layout */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100% !important;
+  }
+
+  /* Fix table responsiveness */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ensure cards are properly sized on mobile */
+  .card-mobile {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 0.5rem !important;
+  }
+
+  /* Admin dashboard specific fixes */
+  .admin-mobile {
+    padding: 0.5rem !important;
+  }
+
+  .admin-mobile .grid {
+    gap: 0.5rem !important;
+  }
+
+  /* Form responsiveness */
+  .form-mobile input,
+  .form-mobile textarea,
+  .form-mobile select {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+
+  /* Button responsiveness */
+  .btn-mobile {
+    min-height: 44px !important; /* Touch target size */
+    padding: 12px 16px !important;
+  }
+
+  /* Mobile payment button optimizations */
+  .payment-btn-mobile {
+    min-height: 48px !important;
+    padding: 14px 20px !important;
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    font-weight: 600 !important;
+    width: 100% !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    -webkit-appearance: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  /* Ensure payment popup container is mobile-friendly */
+  .paystack-container-mobile {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Mobile checkout flow optimizations */
+  .checkout-mobile {
+    padding: 16px !important;
+  }
+
+  .checkout-mobile .card {
+    margin-bottom: 16px !important;
+    border-radius: 8px !important;
+  }
+
+  /* Mobile form field optimizations for iOS */
+  .checkout-mobile input,
+  .checkout-mobile select,
+  .checkout-mobile textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    -webkit-appearance: none !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* Toast Notification Styles - Subtle and Non-intrusive */
+[data-sonner-toaster] {
+  position: fixed !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 8px !important;
+  overflow: visible !important;
+  max-height: calc(100vh - 40px) !important;
+}
+
+/* Mobile: Top right, smaller and subtle */
+@media (max-width: 768px) {
+  [data-sonner-toaster] {
+    top: 16px !important;
+    right: 16px !important;
+    left: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+}
+
+/* Tablet and Desktop: Top right */
+@media (min-width: 769px) {
+  [data-sonner-toaster] {
+    top: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    max-width: 400px !important;
+  }
+}
+
+[data-sonner-toaster] [data-sonner-toast] {
+  pointer-events: auto !important;
+  transform: none !important;
+  position: relative !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  margin-bottom: 8px !important;
+  z-index: 9999 !important;
+}
+
+/* Mobile specific toast adjustments - Smaller and subtle */
+@media (max-width: 768px) {
+  [data-sonner-toaster] [data-sonner-toast] {
+    min-width: 280px !important;
+    max-width: 100% !important;
+    margin: 0 0 8px 0 !important;
+    border-radius: 8px !important;
+    padding: 10px 12px !important;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    background: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+
+  [data-sonner-toaster] [data-sonner-toast] [data-title] {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    margin-bottom: 2px !important;
+  }
+
+  [data-sonner-toaster] [data-sonner-toast] [data-description] {
+    font-size: 12px !important;
+    opacity: 0.8 !important;
+  }
+}
+
+/* Tablet and Desktop adjustments - More subtle */
+@media (min-width: 769px) {
+  [data-sonner-toaster] [data-sonner-toast] {
+    min-width: 280px !important;
+    max-width: 360px !important;
+    margin: 0 0 10px 0 !important;
+    border-radius: 8px !important;
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  [data-sonner-toaster] [data-sonner-toast] [data-title] {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    margin-bottom: 2px !important;
+  }
+
+  [data-sonner-toaster] [data-sonner-toast] [data-description] {
+    font-size: 12px !important;
+    opacity: 0.8 !important;
+  }
+}
+
+/* Success toast styling - Subtle green */
+[data-sonner-toaster] [data-sonner-toast][data-type="success"] {
+  border: 1px solid #d1fae5 !important;
+  background: #ffffff !important;
+  color: #059669 !important;
+  border-left: 3px solid #10b981 !important;
+}
+
+/* Error toast styling - Subtle red */
+[data-sonner-toaster] [data-sonner-toast][data-type="error"] {
+  border: 1px solid #fecaca !important;
+  background: #ffffff !important;
+  color: #dc2626 !important;
+  border-left: 3px solid #ef4444 !important;
+}
+
+/* Info toast styling - Subtle blue */
+[data-sonner-toaster] [data-sonner-toast][data-type="info"] {
+  border: 1px solid #dbeafe !important;
+  background: #ffffff !important;
+  color: #2563eb !important;
+  border-left: 3px solid #3b82f6 !important;
+}
+
+/* Warning toast styling - Subtle orange */
+[data-sonner-toaster] [data-sonner-toast][data-type="warning"] {
+  border: 1px solid #fed7aa !important;
+  background: #ffffff !important;
+  color: #d97706 !important;
+  border-left: 3px solid #f59e0b !important;
+}
+
+/* Loading toast styling - Subtle gray */
+[data-sonner-toaster] [data-sonner-toast][data-type="loading"] {
+  border: 1px solid #e5e7eb !important;
+  background: #ffffff !important;
+  color: #4b5563 !important;
+  border-left: 3px solid #6b7280 !important;
+}
+
+/* Toast animation - Subtle slide in from right */
+[data-sonner-toaster] [data-sonner-toast] {
+  animation: toast-slide-in 0.25s ease-out !important;
+}
+
+/* Fix for blank toast issue - ensure all content is visible */
+[data-sonner-toaster] [data-sonner-toast] * {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure toast content doesn't get hidden */
+[data-sonner-toaster] [data-sonner-toast] [data-title],
+[data-sonner-toaster] [data-sonner-toast] [data-description] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  color: inherit !important;
+}
+
+/* Fix for mobile touch interaction */
+@media (max-width: 768px) {
+  [data-sonner-toaster] [data-sonner-toast]:hover,
+  [data-sonner-toaster] [data-sonner-toast]:active,
+  [data-sonner-toaster] [data-sonner-toast]:focus {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+@keyframes toast-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Email confirmation specific styling */
+[data-sonner-toaster] [data-sonner-toast][data-title*="Email"] {
+  border-left: 4px solid #3b82f6 !important;
+  padding-left: 20px !important;
+}
+
+[data-sonner-toaster] [data-sonner-toast][data-title*="📧"] {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%) !important;
+}
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 150 30% 98%;
+    --foreground: 150 30% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 150 30% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 150 30% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 150 40% 50%;
+    --primary-foreground: 150 10% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 150 10% 90%;
+    --secondary-foreground: 150 10% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 150 10% 90%;
+    --muted-foreground: 150 10% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 150 10% 90%;
+    --accent-foreground: 150 10% 10%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 150 15% 85%;
+    --input: 150 15% 85%;
+    --ring: 150 40% 50%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 150 30% 10%;
+    --foreground: 150 10% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 150 30% 15%;
+    --card-foreground: 150 10% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 150 30% 15%;
+    --popover-foreground: 150 10% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 150 40% 50%;
+    --primary-foreground: 150 10% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 150 30% 20%;
+    --secondary-foreground: 150 10% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 150 30% 20%;
+    --muted-foreground: 150 10% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 150 30% 20%;
+    --accent-foreground: 150 10% 98%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 150 10% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 150 30% 20%;
+    --input: 150 30% 20%;
+    --ring: 150 40% 40%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +489,317 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-size: 16px;
+    line-height: 1.5;
   }
+
+  /* Ensure proper mobile viewport */
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  body,
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+
+/* Book card hover animation */
+.book-card-hover {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.book-card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile-specific styles */
+@layer utilities {
+  /* Responsive text sizes */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl;
+  }
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl;
+  }
+
+  /* Responsive padding */
+  .p-responsive {
+    @apply p-3 sm:p-4 md:p-6;
+  }
+  .px-responsive {
+    @apply px-3 sm:px-4 md:px-6;
+  }
+  .py-responsive {
+    @apply py-3 sm:py-4 md:py-6;
+  }
+
+  /* Mobile-first grid layouts */
+  .grid-responsive-1 {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+  .grid-responsive-2 {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+  .grid-responsive-3 {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  /* Touch-friendly buttons */
+  .btn-touch {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Mobile-responsive button improvements */
+  .btn-mobile {
+    @apply min-h-[44px] px-3 sm:px-4 py-2 text-sm sm:text-base;
+    @apply flex items-center justify-center gap-1 sm:gap-2;
+    @apply overflow-hidden;
+  }
+
+  .btn-mobile-icon {
+    @apply w-4 h-4 flex-shrink-0;
+  }
+
+  .btn-mobile-text {
+    @apply truncate max-w-[200px] sm:max-w-none;
+  }
+
+  /* Button group mobile layouts */
+  .btn-group-mobile {
+    @apply flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto;
+  }
+
+  .btn-group-mobile .btn-mobile {
+    @apply w-full sm:w-auto;
+  }
+
+  /* Small button mobile fixes */
+  .btn-sm-mobile {
+    @apply min-h-[40px] px-2 sm:px-3 py-1 text-xs sm:text-sm;
+    @apply flex items-center justify-center gap-1;
+  }
+
+  /* Form button mobile optimization */
+  .btn-form-mobile {
+    @apply w-full min-h-[48px] px-4 py-3 text-base;
+    @apply font-medium rounded-lg transition-colors;
+  }
+
+  /* Icon-only button mobile optimization */
+  .btn-icon-mobile {
+    @apply min-w-[44px] min-h-[44px] p-2;
+    @apply flex items-center justify-center;
+  }
+
+  /* Global button mobile improvements */
+  @media (max-width: 768px) {
+    /* Ensure all buttons meet minimum touch target */
+    button:not(.btn-exception) {
+      min-height: 44px !important;
+      min-width: 44px !important;
+      padding: 8px 12px !important;
+      font-size: 14px !important;
+    }
+
+    /* Size variants for mobile */
+    button[data-size="sm"]:not(.btn-exception) {
+      min-height: 40px !important;
+      min-width: 40px !important;
+      padding: 6px 10px !important;
+      font-size: 13px !important;
+    }
+
+    button[data-size="lg"]:not(.btn-exception) {
+      min-height: 48px !important;
+      padding: 12px 16px !important;
+      font-size: 16px !important;
+    }
+
+    /* Icon spacing in buttons */
+    button svg:not(:only-child) {
+      margin-right: 4px !important;
+    }
+
+    /* Button text should not wrap awkwardly */
+    button {
+      white-space: nowrap !important;
+    }
+  }
+
+  /* Safe area for mobile devices */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .safe-area-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  .safe-area-right {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Prevent zoom on input focus (iOS Safari) */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  /* Better mobile card styles */
+  .mobile-card {
+    @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+    @apply p-3 sm:p-4 md:p-6;
+  }
+
+  /* Mobile-friendly modal positioning */
+  .mobile-modal {
+    @apply m-4 sm:m-8;
+    max-height: calc(100vh - 2rem);
+  }
+
+  /* Responsive image containers */
+  .img-responsive {
+    @apply w-full h-auto object-cover;
+  }
+
+  /* Text truncation utilities */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Mobile navigation styles */
+  .mobile-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200;
+    @apply safe-area-bottom;
+  }
+}
+
+/* Fix for iOS Safari zoom issue */
+@supports (-webkit-touch-callout: none) {
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+@layer base {
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Remove default focus styles for mouse users */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    color: black !important;
+    background: white !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: 0 0% 20%;
+    --ring: 150 100% 30%;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .book-card-hover:hover {
+    transform: none;
+  }
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hide scrollbar for mobile tabs */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
 }
