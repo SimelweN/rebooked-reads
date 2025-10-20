@@ -64,14 +64,14 @@ export const PRODUCTION_SETTINGS = {
 
   // SEO and metadata
   SEO: {
-    SITE_NAME: 'ReBooked Solutions',
+    SITE_NAME: 'ReBookedReads',
     SITE_DESCRIPTION: 'Buy and sell new and used books through our secure platform in South Africa',
     SITE_URL: 'https://rebookedsolutions.co.za',
     SOCIAL_IMAGE: '/og-image.jpg',
     
     // Structured data
     ORGANIZATION: {
-      name: 'ReBooked Solutions',
+      name: 'ReBookedReads',
       url: 'https://rebookedsolutions.co.za',
       logo: 'https://rebookedsolutions.co.za/logo.png',
       contactPoint: {
