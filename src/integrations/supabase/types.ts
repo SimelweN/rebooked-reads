@@ -9,7 +9,6 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-<<<<<<< HEAD
       api_keys: {
         Row: {
           api_key: string;
@@ -766,15 +765,10 @@ export type Database = {
         ];
       };
     };
-=======
-      [_ in never]: never
-    }
->>>>>>> 9b97eb90ff937f73844966bf50b3b4e3407d3cf5
     Views: {
       [_ in never]: never;
     };
     Functions: {
-<<<<<<< HEAD
       delete_user_profile: {
         Args: { user_id: string };
         Returns: undefined;
@@ -820,13 +814,6 @@ export type Database = {
       broadcast_target_audience: "all" | "users" | "admin";
       broadcast_type: "info" | "warning" | "success" | "error";
     };
-=======
-      [_ in never]: never
-    }
-    Enums: {
-      [_ in never]: never
-    }
->>>>>>> 9b97eb90ff937f73844966bf50b3b4e3407d3cf5
     CompositeTypes: {
       [_ in never]: never;
     };
@@ -940,14 +927,10 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-<<<<<<< HEAD
     Enums: {
       broadcast_priority: ["low", "normal", "medium", "high", "urgent"],
       broadcast_target_audience: ["all", "users", "admin"],
       broadcast_type: ["info", "warning", "success", "error"],
     },
-=======
-    Enums: {},
->>>>>>> 9b97eb90ff937f73844966bf50b3b4e3407d3cf5
   },
 } as const;
