@@ -7,10 +7,10 @@ const getEnvVar = (key: string, fallback = ""): string => {
   return value;
 };
 
-// Development fallback values (only used in development mode)
+// Development fallback values (hardcoded Supabase credentials)
 const DEV_FALLBACKS = {
-  VITE_SUPABASE_URL: "",
-  VITE_SUPABASE_ANON_KEY: "",
+  VITE_SUPABASE_URL: "https://tefjsvwybbfecdilmvor.supabase.co",
+  VITE_SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRlZmpzdnd5YmJmZWNkaWxtdm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA5MDY3OTcsImV4cCI6MjA3NjQ4Mjc5N30.kPx3yqB5AuMnZ1JPxtQ4OO8bmkR1EFsFkD7EQW9RL7o",
   VITE_APP_URL: "http://localhost:8080",
 };
 

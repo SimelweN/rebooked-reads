@@ -31,44 +31,14 @@ import "./utils/suppressResizeObserverError";
 // import "./utils/runCleanupNow";
 
 
-// Enhanced environment validation with deployment safety
+// Environment validation (always passes - credentials hardcoded in client)
 const validateEnvironment = () => {
-  try {
-    const hasSupabaseUrl =
-      import.meta.env.VITE_SUPABASE_URL &&
-      import.meta.env.VITE_SUPABASE_URL.trim() !== "" &&
-      import.meta.env.VITE_SUPABASE_URL !== "undefined";
-
-    const hasSupabaseKey =
-      import.meta.env.VITE_SUPABASE_ANON_KEY &&
-      import.meta.env.VITE_SUPABASE_ANON_KEY.trim() !== "" &&
-      import.meta.env.VITE_SUPABASE_ANON_KEY !== "undefined";
-
-    const missing = [];
-    if (!hasSupabaseUrl) missing.push("VITE_SUPABASE_URL");
-    if (!hasSupabaseKey) missing.push("VITE_SUPABASE_ANON_KEY");
-
-    // In development, we're more lenient
-    if (import.meta.env.DEV && missing.length > 0) {
-      console.warn(
-        "⚠️ Missing Supabase configuration (DEV MODE):",
-        missing.join(", "),
-      );
-      console.warn("⚠️ App will run with limited functionality");
-      return { isValid: true, missing, isDev: true };
-    }
-
-    if (missing.length > 0) {
-      console.warn("⚠️ Missing Supabase configuration:", missing.join(", "));
-      return { isValid: false, missing, isDev: false };
-    }
-
-    console.log("✅ Environment validation passed");
-    return { isValid: true, missing: [], isDev: false };
-  } catch (error) {
-    console.error("Environment validation error:", error);
-    return { isValid: false, missing: ["VALIDATION_ERROR"], isDev: false };
+  // Supabase credentials are hardcoded in src/integrations/supabase/client.ts
+  // No need to validate environment variables
+  if (import.meta.env.DEV) {
+    console.log("✅ Using hardcoded Supabase credentials");
   }
+  return { isValid: true, missing: [], isDev: import.meta.env.DEV };
 };
 
 // Initialize application
