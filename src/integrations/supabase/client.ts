@@ -1,6 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "./types";
-import { ENV } from "@/config/environment";
 
 const isDev = (() => {
   try {
@@ -10,33 +9,16 @@ const isDev = (() => {
   }
 })();
 
-const validateSupabaseConfig = () => {
-  if (!ENV.VITE_SUPABASE_URL || ENV.VITE_SUPABASE_URL.trim() === "") {
-    throw new Error("VITE_SUPABASE_URL is required. Please set this environment variable.");
-  }
-  if (!ENV.VITE_SUPABASE_ANON_KEY || ENV.VITE_SUPABASE_ANON_KEY.trim() === "") {
-    throw new Error("VITE_SUPABASE_ANON_KEY is required. Please set this environment variable.");
-  }
-  try {
-    new URL(ENV.VITE_SUPABASE_URL);
-  } catch {
-    throw new Error(`Invalid VITE_SUPABASE_URL: "${ENV.VITE_SUPABASE_URL}". Must be a valid URL.`);
-  }
-  const cleanKey = ENV.VITE_SUPABASE_ANON_KEY.replace(/\s+/g, "");
-  if (cleanKey !== ENV.VITE_SUPABASE_ANON_KEY) {
-    console.warn("Supabase API key contained whitespace/newlines — cleaning it");
-  }
-  return cleanKey;
-};
-
-const cleanApiKey = validateSupabaseConfig();
+// Hardcoded Supabase configuration for this project
+const SUPABASE_URL = "https://tefjsvwybbfecdilmvor.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRlZmpzdnd5YmJmZWNkaWxtdm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA5MDY3OTcsImV4cCI6MjA3NjQ4Mjc5N30.kPx3yqB5AuMnZ1JPxtQ4OO8bmkR1EFsFkD7EQW9RL7o";
 
 let supabaseInstance: ReturnType<typeof createClient<Database>> | null = null;
 
 export const getSupabase = () => {
   if (supabaseInstance) return supabaseInstance;
 
-  supabaseInstance = createClient<Database>(ENV.VITE_SUPABASE_URL, cleanApiKey, {
+  supabaseInstance = createClient<Database>(SUPABASE_URL, SUPABASE_ANON_KEY, {
     auth: {
       autoRefreshToken: true,
       persistSession: true,
