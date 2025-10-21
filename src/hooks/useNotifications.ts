@@ -5,7 +5,7 @@ import {
   getNotifications,
   clearNotificationCache,
 } from "@/services/notificationService";
-import { Database } from "@/integrations/supabase/types";
+// Note: Avoid importing generated Supabase types to prevent build issues with merge conflicts
 import { getSafeErrorMessage } from "@/utils/errorMessageUtils";
 
 type Notification = Database["public"]["Tables"]["notifications"]["Row"];
