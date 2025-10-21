@@ -54,34 +54,34 @@ const Index = () => {
       />
 
       {/* Hero Section - image right on desktop, below text on mobile/tablet */}
-      <section className="relative">
+      <section className="relative min-h-[520px]">
         {/* Background image as an actual <img> for reliability */}
         <img
           src={"https://images.pexels.com/photos/5984591/pexels-photo-5984591.jpeg"}
           alt="Books background"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
         />
 
         {/* dark overlay for contrast */}
-        <div className="absolute inset-0 bg-black/25 z-10" aria-hidden />
+        <div className="absolute inset-0 bg-black/60 z-10" aria-hidden />
 
         <div className="container mx-auto px-4 relative z-20">
-          <div className="flex items-start justify-center py-12">
+          <div className="flex items-start justify-center py-16">
             {/* Copy */}
             <div className="order-1 text-center w-full">
               <div className="inline-block rounded-full bg-book-200 text-book-800 text-xs sm:text-sm px-3 py-1 mb-4">
                 Pre-Loved Pages, New Adventures
               </div>
-              <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-white drop-shadow-md mb-4 leading-tight">
                 Your Next Favourite Book Awaits.
               </h1>
-              <p className="text-base md:text-lg text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-white/95 drop-shadow-sm mb-6 md:mb-8 max-w-2xl mx-auto">
                 Browse curated types of novels and secondhand books. Find great reads from fellow book lovers and give your books a new home.
               </p>
 
               <form onSubmit={handleSearch} className="max-w-2xl mx-auto">
-                <div className="flex items-center gap-2 bg-white/95 rounded-md shadow-lg overflow-hidden">
+                <div className="flex items-center gap-2 bg-white rounded-md shadow-lg overflow-hidden">
                   <input
                     type="text"
                     aria-label="Search books"

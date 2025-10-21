@@ -118,7 +118,7 @@ const BookListing = () => {
       setIsLoading(false);
       console.log("🏁 BookListing: Loading complete, isLoading set to false");
     }
-  }, [searchParams, selectedCondition, selectedUniversity, selectedProvince, selectedCurriculum, priceRange, currentPage]);
+  }, [searchParams, selectedCondition, selectedProvince, priceRange, currentPage]);
 
   // Initial load
   useEffect(() => {

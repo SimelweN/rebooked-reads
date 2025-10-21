@@ -26,7 +26,7 @@ const HowItWorks = () => {
     <section className="py-16 sm:py-20 bg-gradient-to-r from-book-600 to-book-700 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-book-800 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             How It Works
           </h2>
         </div>
@@ -40,12 +40,12 @@ const HowItWorks = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-xl sm:text-2xl font-bold text-book-800 mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
                 {step.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 leading-relaxed max-w-sm mx-auto">
+              <p className="text-white/90 leading-relaxed max-w-sm mx-auto">
                 {step.description}
               </p>
             </div>
